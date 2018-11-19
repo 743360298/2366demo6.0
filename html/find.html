@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+    
+		*{
+			padding: 0;
+			margin: 0;
+			/* box-sizing: border-box; */
+		}
+			body {
+				/* background: url(../images/drawable-xhdpi/loginbackground.png); */
+				background: #eaeaea;
+				width: 100%;
+				height: 100%;
+			}
+			.mui-title{
+        font-weight: 500;
+        font-family: "微软雅黑";
+      }
+			.mui-bar.mui-bar-nav {
+        background-color: #fff;
+				box-shadow: none;
+      }
+      .mui-bar-nav~.mui-content{
+        padding-top: 45px;
+      }
+			.account{
+				background-color: #fff;
+				color: #000;
+			}
+			.phone{
+        padding: 0.3rem;
+        /* margin-top: 0.02rem; */
+				border-top: #eaeaea solid 0.01rem;
+				/* border-bottom: #eaeaea solid 0.01rem; */
+				/* height: 0.8rem !important; */
+				width: 100%;
+				background-color: #fff;
+				font-size: 0.35rem;
+				font-family: "微软雅黑";
+      }
+      .phone::after{
+        visibility: hidden;
+        clear: both;
+        display: block;
+        content: "";
+        height: 0.02rem;
+        width: 100%;
+        background-color: red;
+      }
+			.phone>a{
+				width: 100%;
+				height: 100%;
+				color: black;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.phone>a span{
+				color: #000;
+				/* font-size: 0.30rem; */
+        font-weight: 500;
+        line-height: initial;
+			}
+			.freeze{
+				display: flex;
+				flex-direction: column; 
+				justify-content: space-between;	
+			}
+			.freeze span:nth-child(2){
+				font-size: 0.28rem ;
+        color: #999;
+        margin-top: 0.1rem;
+      }
+      .hr{
+        width: 100%;
+        height: 0.01rem;
+        background-color: red;
+      }
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+        <h1 class="mui-title">找回账号密码</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="mui-content">
+        <!-- <div class="hr"></div> -->
+      <div class="account">
+          <!-- 已绑定手机号 -->
+					 <div class="phone">
+					 	<a href="../html/phone.html">
+							 <div class="mui-pull-left freeze">
+								 <span>已绑定手机号</span>
+								 <span>可通过手机号+短信验证码登录</span>
+							</div>
+					 		<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+					 	</a>            
+					 </div>
+        </div>
+        <!-- <div class="hr"></div> -->
+					 <div class="phone">
+					 	<a href="../html/email.html">
+							 <div class="mui-pull-left freeze">
+								 <span>已绑定邮箱</span>
+								 <span>可通过邮箱+短信验证码登录</span>
+							</div>
+					 		<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+					 	</a>            
+					 </div>
+				</div>
+
+		</div>
+
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+
+		</script>
+	</body>
+
+</html>

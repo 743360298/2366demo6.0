@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+	    	.mui-bar.mui-bar-nav{
+	    		box-shadow: none;
+	    	}
+	    	.mui-action-back{
+	    		/*color: #fff;*/
+	    	}
+	    	.mui-title{
+	    		/*color: #fff;*/
+	    		font-size: 24px;
+	    		font-weight:700;
+	    	}
+	    	
+	    	.mui-content{
+	    		width: 100%;
+	    	}
+	    	.user{
+	    		height: 250px;
+	    		/*border: 1px solid black;*/
+	    	}
+	    	.lists{
+	    	}
+	    	.background{
+	    		width: 100%;
+	    		height: 240px;
+	    		/*border: 1px solid black;*/
+	    	}
+	    	.icon{
+	    		position: relative;
+	    		top: -8.6rem;
+	    		left: 2.4rem;
+	    		width: 5.5rem;
+	    		height:5.5rem;
+	    		border-radius: 5.5rem;
+	    		border: 8px solid #fff;
+	    		box-shadow: 0px 0px 5px #888888;
+	    	}
+	    	.name{
+	    		position: relative;
+	    		top: -6.6rem;
+	    		left: -3rem;
+	    		font-family: "微软雅黑";
+	    		font-weight: 500;
+	    		/*border: 1px solid black;*/
+	    	}
+	    	.loginbtn{
+	    		position: relative;
+	    		top: -8.6rem;
+	    		right: -74%;
+	    		display: flex;
+	    		align-items: center;
+	    		width: 5.4rem;
+	    		height: 2.2rem;
+	    		border-radius: 100px;
+	    		background: linear-gradient(-120deg,#E4FAF1,#1AA0FF);
+	    		/*border: 1px solid black;*/
+	    	}
+	    	.login-img{
+	    		width: 1.4rem;
+	    		height: 1.4rem;
+	    		margin: 0.6rem;
+	    		border: 1px solid #fff;
+	    		border-radius: 1rem;
+	    	}
+	    	.login-span{
+	    		color: #fff;
+	    	}
+	    	.listimg{
+	    		vertical-align: middle;
+	    	}
+	    	.listspan{
+	    		vertical-align: middle;
+	    		margin-left: 10px;
+	    	}
+    	</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		    <h1 class="mui-title">个人中心</h1>
+		</header>
+		<div class="mui-content">
+			<div class="user">
+		    	<img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/>
+		    	<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
+		    	<span class="name">请登录</span>
+		    	<span class="loginbtn">
+		    		<img class="login-img" src="../images/drawable-xhdpi/yonghuming.png"/>
+		    		<span class="login-span">登出</span>
+		    	</span>
+		    </div>
+		    <div class="lists">
+		    	<ul class="mui-table-view">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="settings.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/setting.png"/>
+		                    <span class="listspan">个人设置</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="personal.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/IDcard.png"/>
+		                    <span class="listspan">身份认证</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="../html/wallet.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/qianbao.png"/>
+		                    <span class="listspan">钱包</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right">
+		                	<img class="listimg" src="../images/drawable-xhdpi/tongzhi.png"/>
+		                    <span class="listspan">通知</span>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>

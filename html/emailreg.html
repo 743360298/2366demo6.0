@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				background: url(../images/drawable-xhdpi/loginbackground.png);
+				padding: 60px 18px;
+			}
+			
+			.mui-bar.mui-bar-nav {
+				box-shadow: none;
+			}
+			
+			.regdiv{
+				position: absolute;
+				width: 90%;
+				height: 400px;
+				padding: 30px;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+			}
+			.regdiv h3{
+				text-align: center;
+			}
+			.reg{
+				color: #1BA0FF;
+			}
+			.mui-input-group.login{
+				margin-top: 50px;
+			}
+			.mui-input-group.login:before{
+				height: 0;
+			}
+			
+			.mui-input-row{
+				/*border: 1px solid black;*/
+				margin: 15px 0;
+				display: flex;
+			}
+			.mui-input-group .mui-input-row:after{
+				left: 0;
+			}
+			.labelimg{
+				width: 25px;
+				height: 25px;
+				line-height: 25px;
+				margin: 5px;
+			}
+			
+			#phone{
+				border: none;
+				border-bottom: 1px solid #eee;
+			}
+			.emailreg{
+				float: left;
+			}
+			#logintext{
+				display: block;
+				float: right;
+			}
+			#loginlink{
+				color: #1BA0FF;
+			}
+			.loginbtn{
+				position: relative;
+				top: 280px;
+				width: 280px;
+				height: 40px;
+				line-height: 40px;
+				margin: 0 auto;
+				border-radius: 20px;
+				text-align: center;
+	    		background: linear-gradient(-120deg,#E4FAF1,#1AA0FF);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="regdiv">
+			<h3>邮箱注册</h3>
+			<form class="mui-input-group login">
+				<div class="mui-input-row">
+					<img class="labelimg" src="../images/drawable-xhdpi/email.png"/>
+					<input type="text" name="phone" id="phone" placeholder="请输入邮箱"/>
+				</div>
+			</form>
+			<span class="reg">
+				手机号注册
+			</span>
+			<span id="logintext">
+				已有账号?<span id="loginlink">登录</span>
+			</span>
+		</div>
+		</div>
+		<div class="loginbtn">
+			下一步
+		</div>
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".reg")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					var ws = plus.webview.getWebviewById("reg");
+   					plus.webview.close(ws);
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg2.html', 'emailreg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>

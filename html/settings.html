@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				padding: 0 0.3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+      .portrait{
+        margin-top: 0.2rem;
+        height: 1.2rem;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 0.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.2rem;
+        font-size: 0.35rem;
+        font-family: "微软雅黑";
+      }
+      .portrait img{
+        width: 0.85rem;
+        height: 0.85rem;
+      }
+      .portrait span{
+
+      }
+      .security, .aboutUs{
+        margin-top: 0.2rem;
+        height: 0.8rem;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 0.1rem;
+        padding: 0.2rem;
+        font-size: 0.35rem;
+        font-family: "微软雅黑";
+      }
+      .security>a, .aboutUs>a {
+        width: 100%;
+        height: 100%;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">个人设置</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+
+			</header>
+
+			<div class="mui-content">
+        <!-- 头像 -->
+        <div class="portrait">
+          <span>头像</span>
+          <img src="../images/drawable-xhdpi/touxiang.png" alt="">
+        </div>
+        <!-- 账号与安全 -->
+        <div class="security">
+          <a href="../html/security.html">
+            <span class=" mui-pull-left">账号与安全</span>
+            <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+          </a>
+        </div>
+        <!-- 关于我们 -->
+        <div class="aboutUs">
+        	<a href="../html/aboutus.html">
+        		<span class=" mui-pull-left">关于我们</span>
+            	<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+        	</a>            
+        </div>
+
+			</div>
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+        background-color: #eaeaea;
+			}
+			.mui-bar .mui-bar-nav {
+				box-shadow: none;
+        background-color: rgba(255,255,255);
+			}
+      .mui-content{
+				padding: 0 0.3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+      .version{
+        margin-top: 0.2rem;
+        height: 0.8rem;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 0.1rem;
+        padding: 0.2rem;
+        font-size: 0.35rem;
+        font-family: "微软雅黑";
+      }
+			.version-new{
+        display: flex;
+        align-content: center;
+      }
+      .version-new img{
+        height: 0.4rem;
+        margin-left: 0.2rem;
+        display: flex;
+        align-content: center;
+      }
+      .version-new span{
+        color: #000;
+      }
+		</style>
+	</head>
+
+	<body>
+
+      <header id="header" class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">关于我们</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    </header>
+    <!-- 版本号 -->
+    <div class="mui-content">
+      <div class="version">
+          <a href="../html/aboutus.html">
+            <div class="version-new mui-pull-left">
+              <span>当前版本</span>
+              <img src="../images//drawable-xhdpi/NEW.png" alt="">
+            </div>
+            <span class=" mui-pull-right">1.0</span>
+          </a>            
+      </div>
+    </div>
+    
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>

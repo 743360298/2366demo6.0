@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/public.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.12.2.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			.head-img{
+				/* padding: 0.1rem 0 ;  */
+			}
+			#serviceBtn{
+				padding: 5px 0;
+				display: flex;
+				align-items: center;
+				height: 100%;
+			}
+			#serviceBtn img{
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+			}
+			.mui-content{
+				/* padding: 0 10px; */
+			}
+			.approve{
+				height: 0.6rem;
+				padding: 0 0.2rem;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				color: #666 ;
+				background-color: #eaeaea;
+			}
+			.approve span{
+				font-size: 0.24rem;
+			}
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">身份认证</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<!-- <a class="mui-pull-right head-img" id="serviceBtn">
+					<img class="" src="../images/drawable-xhdpi/kefu.png" alt="">
+				</a> -->
+				<a id="serviceBtn" class=" mui-pull-right">
+						<img class="" src="../images/drawable-xhdpi/kefu.png" alt="">
+				</a>
+			</header>
+
+			<div class="mui-content">
+				<div class="approve">
+					<span>您没有进行身份认证，认证通过后才能签约</span>
+				</div>
+			</div>
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+</html>
+<script>
+	window.onload = function () {
+		serviceBtn();
+		
+	}
+	    // 客服
+			function serviceBtn() {
+
+					$('#serviceBtn').click(function () {
+							mui.confirm("是否拨打 400-888-999", "拨打电话", ["取消", "确定"], function (etype) {
+								if(etype.index == 0 ){
+										// 未被选中的li标签数组
+										console.log("取消");
+								} else if(etype.index == 1){
+										console.log("确定");
+								}
+					  	})	
+					})
+			}
+</script>

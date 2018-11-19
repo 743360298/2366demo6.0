@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+			body {
+				/* background: url(../images/drawable-xhdpi/loginbackground.png); */
+				background: #eaeaea;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-bar.mui-bar-nav {
+				color: #fff;
+				box-shadow: none;
+			}
+			.mui-bar .mui-title{
+				color: #fff;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
+			.security{
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.background{
+				display: block;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				/* height:4.5rem; */
+				margin-top: -1rem;
+				/*border: 1px solid black;*/
+			}
+			.version-img1,.version-img2 {
+				/* width: 2.2rem; */
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+			}
+			.version-img1{
+				width: 2.6rem;
+			}
+			.version-img2{
+				width: 1.3rem;
+			}
+			.account{
+				background-color: #fff;
+				color: #000;
+				margin-top: 0.3rem;
+			}
+			.password{
+				padding: 0.3rem;
+				border-bottom: #eaeaea solid 0.01rem;
+				/* height: 0.8rem !important; */
+				width: 100%;
+				background-color: #fff;
+				font-size: 0.35rem;
+				font-family: "微软雅黑";
+			}
+			.password>a{
+				width: 100%;
+				height: 100%;
+				color: black;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.password>a span{
+				color: #333;
+				/* font-size: 0.30rem; */
+				font-weight: 500;
+				line-height: 0.5rem;
+			}
+			.freeze{
+				display: flex;
+				flex-direction: column; 
+				justify-content: space-between;	
+				line-height: initial;
+			}
+			.freeze span:nth-child(2){
+				font-size: 0.28rem ;
+				color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+        <h1 class="mui-title">智慧珠海安全中心</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+
+		<div class="mui-content">
+				<div class="security">
+						<img class="background" src="../images/drawable-xhdpi/anquanbeijing.png"/>
+						<img class="version-img1" src="../images/drawable-xhdpi/anquan2.png" alt="">
+						<img class="version-img2" src="../images/drawable-xhdpi/anquan3.png" alt="">
+				</div>
+				
+				<div class="account">
+					 <!-- 找回账号密码 -->
+					 <div class="password">
+					 	<a href="../html/find.html">
+					 		<span class=" mui-pull-left">找回账号密码</span>
+					 		<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+					 	</a>            
+					 </div>
+					 <!-- 冻结账号 -->
+					 <div class="password">
+					 	<a href="../html/freeze.html">
+								<div  class="mui-pull-left freeze">
+										<span>冻结账号</span>
+										<span>自己或朋友的账号被盗、手机丢失，可以冻结账号</span>
+								 </div>
+					 		<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+					 	</a>            
+					 </div>
+					 <!-- 解冻账号 -->
+					 <div class="password">
+					 	<a href="../html/unfreeze.html">
+							 <div class="mui-pull-left freeze">
+								 <span>解冻账号</span>
+								 <span>自己或朋友的账号被盗、手机丢失，可以冻结账号</span>
+							</div>
+					 		<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+					 	</a>            
+					 </div>
+
+				</div>
+
+		</div>
+
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/zepto.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				/* padding: 0 0.3rem; */
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+      .freeze{
+        /* background-color: pink; */
+        padding:0.2rem 0.3rem;
+      }
+      .freeze .accountTxt span{
+        font-size: 0.32rem;
+        font-family: "微软雅黑";
+        color: #666;
+      }
+
+      .phone{
+				padding: 0.3rem 0.4rem;
+				border-bottom: #eaeaea solid 0.01rem;
+				/* height: 0.8rem !important; */
+				width: 100%;
+				background-color: #fff;
+				font-size: 0.35rem;
+				font-family: "微软雅黑";
+        margin-bottom: 0.2rem;
+			}
+			.phone>a{
+				width: 100%;
+				height: 100%;
+				color: black;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.phone>a span{
+				color: #000;
+				/* font-size: 0.30rem; */
+				font-weight: 500;
+			}
+      .phoneLeft{
+        display: flex;
+        align-items: center;
+        width: 2rem;
+        padding-right: 0.2rem;
+       /* border-right: #999 solid 0.02rem; */
+      }
+      .phoneLeft span:last-child{
+        color: #999;
+      }
+      .phone-input{
+        display: flex;
+      }
+      .mui-input-group{
+        width: 100%;
+        height: 0.5rem;
+      }
+      .mui-input-group .mui-input-row{
+        width: 100%;
+        height: 0.5rem;
+        position: relative;
+      }
+      .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+      #phoneInput{
+        width: 100%;
+        height: 0.5rem !important;
+        flex: 2;
+        border:  0 ;
+        display: flex;
+        align-items: center;
+        border-left: 0.01rem solid #1aa0ff ;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        height: auto;
+        text-indent:  0.2rem;
+        font-size: 0.33rem;
+      }
+      #cancelBtn{
+        position: absolute;
+        top: 0.05rem;
+      }
+      #codeInput{
+        flex: 2;
+        border:  0 ;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        height: auto;
+        text-indent:  0.2rem;
+      }
+      .code-input{
+        display: flex;
+        padding:  0.3rem;
+      }
+      .code-input img{
+        width: 1.5rem ;
+        height: 0.55rem;
+        display: block;
+      }
+      #freezeBtn{
+         margin-top: 1rem;
+         width: 80%;
+         margin: 1.2rem auto 0;
+				 border-radius: 50px;
+				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
+				 border: 0;
+      }
+   
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">已绑定手机号</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+      </header>
+      <div class="mui-content">
+         
+
+          <div class="phone phone-input">
+                <!-- <div class="phoneLeft mui-pull-left">
+                    <span>中国</span>
+                    <span class=" mui-icon mui-icon-arrowright"></span>
+                </div> -->
+                <form class="mui-input-group">
+                    <div class="mui-input-row">
+                        <input type="text" id="phoneInput" class="mui-input-clear" placeholder="请输入手机号">
+                        <span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+                    </div>
+                </form>
+          </div>
+          
+          <button type="button" id="freezeBtn" class="mui-btn mui-btn-primary mui-btn-block">获取验证码 </button>
+
+
+      </div>
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
+<script type="text/javascript">
+    var freezeBtn = document.getElementById('freezeBtn');
+    freezeBtn.onclick = function(){
+      window.location.href = "../html/code.html";
+    }
+
+
+//   $(function(){
+//     init() ;
+//     function init(){
+//         eventList() ;
+//         isPoneAvailable(str);
+//     }
+//     function eventList(){
+//         // 登录按钮  
+//         $("#freezeBtn").on("tap",function(){
+//             console.log(123);
+
+//               function isPoneAvailable(str) {
+//                   var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+//                   if (!myreg.test(str)) {
+//                     mui.toast("请输入手机号");
+//                       return false;
+//                   } else {
+//                       return true;
+//                   }
+//               }
+
+//         })  
+//     }
+// })
+
+</script>

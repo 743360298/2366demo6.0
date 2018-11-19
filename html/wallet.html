@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				background: url(../images/drawable-xhdpi/loginbackground.png) ;
+				padding: 60px 18px;
+			}
+			
+			.mui-bar.mui-bar-nav {
+				box-shadow: none;
+			}
+			header .mui-title{
+				color: #fff;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
+			.walletImg{
+				height: 120px;
+				/* background-color: pink; */
+				position: relative;
+			}
+			.walletImg img{
+				position: absolute;
+				width: 60%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50% , -50%)
+			}
+			.walletdiv{
+				position: absolute;
+				width: 90%;
+				height: 400px;
+				padding:1px 20px;
+				background-color: #fff;
+				border-radius: 10px;
+				border: 1px solid #fff;
+			}
+
+			.walletdiv .mui-title{
+				color:red;
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}
+			.wallettitle{
+				height: 45px;
+				/* position: relative; */
+			}
+			.walletdiv .wallettitle .mui-pull-left{
+				display: block;
+			  display: flex;
+				align-items: center;
+				height: 100%;
+			}
+			.walletdiv .wallettitle .mui-pull-left img{
+				width: 80%;
+			}
+			ul li{
+				list-style: none;
+			}
+			.walletList{
+				display: flex;
+				width: 100%;
+				flex-wrap: wrap;
+				padding: 0;
+				margin: 0;
+			}
+			.walletList .wallet-li{
+				width: 33.33%;
+				margin-top: 30px;
+			}
+			.walletList .wallet-li a{
+				width: 100%;
+				height: 100%;
+			}
+			.walletList .wallet-li a p{
+				text-align: center;
+				margin-top: 10px;
+				font-size: 20px;
+			}
+			.walletList .wallet-li a img{
+				width: 70%;
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+        <h1 class="mui-title">钱包</h1>
+			  <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+
+		<div class="walletImg">
+			<img src="../images/drawable-xhdpi/qianbaotu1.png" alt="">
+		</div>
+		<div class="walletdiv">
+			<div class="wallettitle">
+				 <div class="mui-title">
+				 	 为了您的资金安全，请完善实名信息
+				 </div>
+				 <span class="mui-pull-left">
+				 	<img src="../images/drawable-xhdpi/zijintongzhi.png" alt="">
+				 </span>
+			</div>
+
+			<ul class="walletList">
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+				
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+				
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+				<li  class="wallet-li">
+					<a href="javascript:;">
+						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
+						<p>I贝余额</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<p>I贝说明</p>
+
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>
+<script src="../js/mui.min.js"></script>
