@@ -15,6 +15,9 @@
 			mui.init();
 		</script>
 		<style type="text/css">
+		body{
+			background-color: #eaeaea;
+		}
 			.head-img{
 				/* padding: 0.1rem 0 ;  */
 			}
@@ -45,6 +48,170 @@
 			.approve span{
 				font-size: 0.24rem;
 			}
+			.radio-box{
+				display: flex;
+				justify-content: space-around;
+				height: 1.5rem;
+				background-color: #fff;
+				position: relative;
+			}
+			.radioImg2{
+				display: block;
+				height: 30px;
+				width: 30px;
+				background: url('../images/drawable-xhdpi/renzhengxuanze2.png') no-repeat;
+				background-size: 100% 100% ;
+				z-index: 99;
+				margin:0 10px;
+			}
+			.radioImg{
+				display: block;
+				height: 30px;
+				width: 30px;
+				background: url('../images/drawable-xhdpi/renzhengxuanze.png') no-repeat;
+				background-size: 100% 100% ;
+				z-index: 99;
+				margin:0 10px;
+				border: 0;
+			}
+			.radio-box .personal,.radio-box .enterprise{
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 20px;
+			}
+			.mui-input-group .mui-input-row{
+        width: 100%;
+        height: 0.5rem;
+        position: relative;
+      }
+      .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+			.mui-input-row label{
+				padding:  15px;
+			}
+			.user-info{
+				margin-top: 10px;
+				height: 100%;
+				font-size: 20px;
+				padding-right: 15px;
+				/* padding: 0.1rem 0; */
+				background-color: #fff;
+			}
+			.user-info .mui-input-row{
+				height: 100%;
+				background-color: #fff;
+			}
+			.user-info .mui-input-clear{
+				font-size: 18px;
+			}
+			.infoBtn{
+				position: absolute;
+				top: 50%;
+				transform: translateY(15%);
+			}
+			#userName{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				color: #666;
+			}
+			.choose{
+		    position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
+			#choose,#gender{
+				color: #666;
+			}
+			.mui-icon-arrowright:before{
+				color: #666;
+				display: flex;
+				align-items: center;
+			}
+			.encryption{
+				padding: 15px ;
+				font-size: 20px;
+				color: #666;
+			}
+			.idNum{
+				padding: 0;
+				margin-top: 0;
+			}
+			.idNum .mui-input-row {
+				padding:  5.5px 0;
+			}
+			.idNum .mui-input-row .mui-input-clear{
+				padding: 10px 20px 10px 15px;
+			}
+			#cancelBtn{
+				position: absolute;
+				top: 50% ;
+				transform: translateY(-30%);
+				margin-right: 10px;
+			}
+			.positive{
+				padding: 15px;
+				display: flex;
+				background-color: #fff;
+				margin-bottom: 10px;
+			}
+			.positive .positive-left{
+				width: 50%;
+				height: 2.2rem;
+				border: #999 dashed 2px;
+				border-radius: 10px;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+			}
+			.positive .positive-left .taking-pictures img{
+				/* text-align: center; */
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.taking-pictures{
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%)
+			}
+			.taking-pictures span{
+				display: block;
+				width: 100%;
+				text-align: center;
+				color:#999;
+			}
+			.positive .positive-right{
+				width: 50%;
+				padding: 0 0  0 10px;
+				color: #666;
+				/* height: 220px; */
+			}
+			#certificationBtn{
+				background-image: linear-gradient(to top right,#1aa0ff,#01cdf2);
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-btn-block{
+				margin-bottom: 0px;
+			}
     </style>
 	</head>
 
@@ -66,6 +233,87 @@
 				</div>
 			</div>
 
+			<div class="radio-box">
+				<div class="personal">
+					<span class="radioImg2 "></span>
+					<label>个人认证</label>
+				</div> 
+				<div class="enterprise">
+					<span class="radioImg2"></span>
+					<label>企业认证</label>
+				</div> 
+			</div>
+
+			<form class="mui-input-group user-info">
+					<div class="mui-input-row">
+							<label>姓名</label>
+					<input type="text" class="mui-input-clear" id="userName" placeholder="请输入用户名">
+					<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+					</div>
+			</form>
+
+			<div class="mui-input-group user-info">
+					<div class="mui-input-row" id="chooseBtn">
+							<label>证件类型</label>
+							<div class="choose mui-pull-right">
+									<span id="choose">请选择</span>
+									<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+							</div>
+					</div>
+			</div>
+
+			<div class="mui-input-group user-info">
+					<div class="mui-input-row" id="genderBtn">
+							<label>性别</label>
+							<div class="choose mui-pull-right">
+									<span id="gender">请选择</span>
+									<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+							</div>
+					</div>
+			</div>
+
+			<div class="encryption">
+				<span>证件号(将加密处理)</span>
+			</div>
+
+			<form class="mui-input-group user-info idNum">
+					<div class="mui-input-row">
+							<input type="text" class="mui-input-clear" id="idNum" placeholder="请填写并确认证件号">
+							<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+					</div>
+			</form>
+
+			<div class="encryption">
+				<span>证件照(将加密处理)</span>
+			</div>
+
+			<div class="positive">
+				<div class="positive-left">
+					<div class="taking-pictures"> 
+							<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+							<span>身份证正面</span>
+					</div>
+				</div>
+				<div class="positive-right">
+					<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+				</div>
+			</div>
+			<div class="positive contrary">
+				<div class="positive-left">
+					<div class="taking-pictures">
+						<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+						<span>身份证反面</span>
+					</div>
+				</div>
+				<div class="positive-right">
+					<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+				</div>
+			</div>
+
+			<button type="button" id="certificationBtn" class="mui-btn mui-btn-primary mui-btn-block">去认证</button>
+
+
+
 		<script type="text/javascript">
 			mui.plusReady(function(){
 				mui(".name")[0].addEventListener('tap',function(){
@@ -78,11 +326,11 @@
 <script>
 	window.onload = function () {
 		serviceBtn();
-		
+		radioBtn();
+		genderBtn();
 	}
 	    // 客服
 			function serviceBtn() {
-
 					$('#serviceBtn').click(function () {
 							mui.confirm("是否拨打 400-888-999", "拨打电话", ["取消", "确定"], function (etype) {
 								if(etype.index == 0 ){
@@ -94,4 +342,48 @@
 					  	})	
 					})
 			}
+			
+			// 选择性别
+			function genderBtn() {
+				$('#genderBtn').click(function () {
+							mui.confirm("性别", "请选择", ["男", "女"], function (etype) {
+								if(etype.index == 0 ){
+										// 未被选中的li标签数组
+										console.log("男");
+								} else if(etype.index == 1){
+										console.log("女");
+								}
+					  	})	
+					})
+			}
+
+		// 单选框
+		function radioBtn() {
+				$(function () {
+					flag = false;
+						$(".radioImg2:eq(0)").on("click",function(){
+							$(this).addClass('radioImg')
+							$(".radioImg2:eq(1)").removeClass('radioImg')
+						})
+						$(".radioImg2:eq(1)").on("click",function(){
+							$(this).addClass('radioImg')
+							$(".radioImg2:eq(0)").removeClass('radioImg')
+						})
+
+
+					// $('.radioImg2 ').click(function () {
+					// 	console.log($('.radioImg2:eq(1)'))
+					// 	$(this).toggleClass('radioImg')
+						
+							
+					// 		// var flag_all = false;
+					// 		// $.each($('.radioImg2'), function () {
+					// 		// 		if ($(this).hasClass('radioImg')) {
+					// 		// 				flag_all = true;
+					// 		// 		}
+					// 		// })
+					// })
+				})
+		}
+
 </script>

@@ -13,8 +13,8 @@
 		</script>
 		<style type="text/css">
 			body {
-				background: url(../images/drawable-xhdpi/loginbackground.png) ;
-				padding: 60px 18px;
+				/* background: url(../images/drawable-xhdpi/loginbackground.png) ; */
+				/* padding: 60px 18px; */
 			}
 			
 			.mui-bar.mui-bar-nav {
@@ -27,22 +27,21 @@
 				color: #fff;
 			}
 			.walletImg{
-				height: 120px;
+				/* height: 120px; */
 				/* background-color: pink; */
 				position: relative;
 			}
 			.walletImg img{
-				position: absolute;
-				width: 60%;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50% , -50%)
+				width: 100%;
 			}
 			.walletdiv{
 				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 				width: 90%;
-				height: 400px;
-				padding:1px 20px;
+				height: 50%;
+				padding:1px 20px ;
 				background-color: #fff;
 				border-radius: 10px;
 				border: 1px solid #fff;
@@ -78,7 +77,7 @@
 			}
 			.walletList .wallet-li{
 				width: 33.33%;
-				margin-top: 30px;
+				margin-top: 0.3rem;
 			}
 			.walletList .wallet-li a{
 				width: 100%;
@@ -87,12 +86,17 @@
 			.walletList .wallet-li a p{
 				text-align: center;
 				margin-top: 10px;
-				font-size: 20px;
+				font-size: 18px;
 			}
 			.walletList .wallet-li a img{
 				width: 70%;
 				display: block;
 				margin: 0 auto;
+			}
+			.ibei{
+				position: absolute;
+				bottom: -40px;
+				left: -0px;
 			}
 		</style>
 	</head>
@@ -104,7 +108,7 @@
 		</header>
 
 		<div class="walletImg">
-			<img src="../images/drawable-xhdpi/qianbaotu1.png" alt="">
+			<img src="../images/drawable-xhdpi/qianbaotu.png" alt="">
 		</div>
 		<div class="walletdiv">
 			<div class="wallettitle">
@@ -126,38 +130,38 @@
 				
 				<li  class="wallet-li">
 					<a href="javascript:;">
-						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-						<p>I贝余额</p>
+						<img src="../images/drawable-xhdpi/Ibeizhuanzhang.png" alt="">
+						<p>I贝转账</p>
 					</a>
 				</li>
 				
 				<li  class="wallet-li">
 					<a href="javascript:;">
-						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-						<p>I贝余额</p>
+						<img src="../images/drawable-xhdpi/yinhangka.png" alt="">
+						<p>银行卡</p>
 					</a>
 				</li>
 				<li  class="wallet-li">
 					<a href="javascript:;">
-						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-						<p>I贝余额</p>
+						<img src="../images/drawable-xhdpi/jiaoyijilu.png" alt="">
+						<p>交易记录</p>
 					</a>
 				</li>
 				<li  class="wallet-li">
 					<a href="javascript:;">
-						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-						<p>I贝余额</p>
+						<img src="../images/drawable-xhdpi/jifen.png" alt="">
+						<p>积分</p>
 					</a>
 				</li>
 				<li  class="wallet-li">
 					<a href="javascript:;">
-						<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-						<p>I贝余额</p>
+						<img src="../images/drawable-xhdpi/kaquan.png" alt="">
+						<p>卡券</p>
 					</a>
 				</li>
 			</ul>
+			<p class="ibei">I贝说明</p>
 		</div>
-		<p>I贝说明</p>
 
 
 		
@@ -179,3 +183,4 @@
 
 </html>
 <script src="../js/mui.min.js"></script>
+<script src="../js/public.js"></script>

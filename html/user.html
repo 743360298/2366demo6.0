@@ -34,10 +34,22 @@
 	    	}
 	    	.lists{
 	    	}
+			.mui-bar .mui-title{
+				font-weight: 400;
+				color: #fff;
+				font-size: 17px;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
 	    	.background{
-	    		width: 100%;
-	    		height: 240px;
-	    		/*border: 1px solid black;*/
+				display: block;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				/* height: 4.5rem; */
+				margin-top: -3rem;
+				/* border: 1px solid black; */
 	    	}
 	    	.icon{
 	    		position: relative;
@@ -91,7 +103,8 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav mui-bar-transparent">
-		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
 		    <h1 class="mui-title">个人中心</h1>
 		</header>
 		<div class="mui-content">
@@ -100,7 +113,7 @@
 		    	<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
 		    	<span class="name">请登录</span>
 		    	<span class="loginbtn">
-		    		<img class="login-img" src="../images/drawable-xhdpi/yonghuming.png"/>
+					<img class="login-img" src="../images/drawable-xhdpi/yonghuming.png"/>
 		    		<span class="login-span">登出</span>
 		    	</span>
 		    </div>
@@ -125,7 +138,7 @@
 		                </a>
 		            </li>
 		            <li class="mui-table-view-cell">
-		                <a class="mui-navigate-right">
+		                <a class="mui-navigate-right" href="../html/notice.html">
 		                	<img class="listimg" src="../images/drawable-xhdpi/tongzhi.png"/>
 		                    <span class="listspan">通知</span>
 		                </a>
