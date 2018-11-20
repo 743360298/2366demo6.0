@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script src="../js/slidingEvent.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /*清除浮动*/
+    .clearfix:after {
+        visibility: hidden;
+        clear: both;
+        display: block;
+        content: ".";
+        height: 0;
+        line-height: 0;
+    }
+      html{
+        background-color: #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+      .mui-bar-nav~.mui-content{
+        padding-top: 45px ;
+      }
+			.mui-content{
+				/* padding: 0 0.3rem; */
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+      li{
+        list-style: none;
+      }
+      .monthNav{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        background-color: #fff;
+      }
+      .monthList{
+        width: 100%;
+        height: 100%;
+        display:inline;
+        white-space:nowrap; 
+        margin: 0;
+        padding: 0;
+
+      }
+      .monthList li{
+        margin:-1px -3px;
+        display:inline-block;
+        padding: 25px 15px;
+        text-align: center;
+        line-height: initial;
+        font-family: '微软雅黑';
+        font-weight: 500;
+      }
+      .month-active{
+        background-color: #1aa0ff;
+        font-family: '微软雅黑';
+        font-weight: 500;
+        color: #fff;
+      }
+      .expenseBox{
+        padding: 15px;
+      }
+      .expense-echarts{
+        padding:0.2rem 0.15rem;
+        /* padding: 30px; */
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      .expense-year{
+        display: flex;
+        /* padding: 20px 15px ; */
+        
+      }
+      .expense-year span:first-child{
+        font-size: 0.34rem;
+        color: #333;
+        display: flex;
+        align-items: center;
+        /* margin-top: 0.07rem; */
+      }
+      .expense-year .mui-icon{
+        display: flex;
+        align-items: center;
+      }
+      .mui-icon-arrowright:before{
+        color: #666;
+        font-size: 0.44rem;
+      }
+      .income,.spending,.surplus{
+        position: relative;
+        font-size: 0.30rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .income::before, 
+      .spending::before, 
+      .surplus::before{
+        clear: both;
+        display: block;
+        content: "";
+        height: 0.15rem;
+        width: 0.15rem;
+        background-color: #1aa0ff;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(-150% ,-50%)
+      }
+      .income span:last-child{
+        margin-left: 5px;
+        color: red;
+        line-height: initial;
+      }
+      .spending span:last-child{
+        color: #1aa0ff;
+        line-height: initial;
+      }
+      .surplus span:last-child{
+        color: #666;
+        line-height: initial;
+      }
+      .expense-list li{
+        padding: 2px 15px;
+      }
+      .expense-list li>span:last-child{
+        color: #1aa0ff;
+        font-size: 0.28rem;
+      }
+      .expense-down{
+        overflow: hidden;
+        display: flex;
+      }
+      .expense-echarts .expense-left,.expense-echarts .expense-right{
+        width: 50%;
+      }
+      #chartmain{
+        /* width: 100%; */
+      }
+      .expenseTab{
+        
+      }
+      .expenseTab .tabNav{
+        display: flex;
+        background-color: #fff;
+        border-bottom: 0.5px solid #eaeaea;
+      }
+      .expenseTab .tabNav li{
+        width: 33.33%;
+        display: flex;
+        justify-content: center;
+        padding: 15px 0 ;
+      }
+      .expense-active{
+        color: #1aa0ff;
+        position: relative;
+      }
+      .expense-active::after{
+        color: #1aa0ff;
+        clear: both;
+        display: block;
+        content: "";
+        height: 1px;
+        width: 20px;
+        background-color: #1aa0ff;
+        position: absolute;
+        left: 50%;
+        bottom: 15%;
+        transform: translate(-50% ,-50%)
+      }
+      .expenseTabBox{
+        padding: 0 15px ;
+        background-color: #fff;
+      }
+      .main{
+        /* padding-bottom: 10px; */
+        border-bottom: 0.5px solid #eaeaea;
+        display: none;
+
+      }
+      .expense-selected {
+        display: block;
+      }
+
+      .expenseList1 , .expenseList2{
+        
+        display: flex;
+        justify-content: space-between;
+      }
+      .expenseList1 span, .expenseList2 span{
+        margin-top: 10px;
+      }
+      .expenseList2 span{
+        color: #666;
+      }
+      .main ul li{
+        padding-bottom: 10px;
+        border-bottom: 0.5px solid #eaeaea;
+      }
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">记账本</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+			</header>
+
+			<div class="mui-content">
+        <div class="monthNav">
+          <ul class="monthList clearfix">
+            <li>一月</li>
+            <li>二月</li>
+            <li>三月</li>
+            <li>四月</li>
+            <li  class="month-active">五月</li>
+            <li>六月</li>
+            <li>七月</li>
+            <li>八月</li>
+            <li>九月</li>
+            <li>十月</li>
+            <li>十一月</li>
+            <li>十二月</li>
+          </ul>
+        </div>
+        <div class="expenseBox">
+          <div class="expense-echarts">
+            <div class="expense-year">
+              <span>2018</span>
+              <span class="mui-icon mui-icon-arrowright"></span>
+            </div>
+
+            <div class="expense-down">
+                <div class="expense-left">
+                    <ul class="expense-list">
+                      <li>
+                          <div class=" income"><span>收入 (i币)</span><span>￥100:00</span></div>
+                          <span>占比55%</span>
+                      </li>
+                      <li>
+                        <div class=" spending"><span>收入 (i币)</span><span>￥100:00</span></div>
+                        <span>占比55%</span>
+                      </li>
+                      <li>
+                        <div class=" surplus"><span>剩余</span><span>￥100:00</span></div>
+                        <span>占比55%</span>
+                      </li>
+                    </ul>
+                </div>
+    
+                <div class="expense-right">
+                  <div id="chartmain" style="width:100%; height: 100%"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <div class="expenseTab">
+          <ul class="tabNav">
+             <li class="tab-item expense-active">全部</li>
+             <li class="tab-item">收入</li>
+             <li class="tab-item">支出</li>
+          </ul>
+
+          <div class="expenseTabBox">
+                <div class="main expense-selected">
+                    <ul>
+                      <li>
+                          <div class="expenseList1">
+                              <span>充值i币</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                      <li>
+                          <div class="expenseList1">
+                              <span>充值i币</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                    </ul>
+                </div>
+                <div class="main ">
+                    <ul>
+                      <li>
+                          <div class="expenseList1">
+                              <span>收入</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                      <li>
+                          <div class="expenseList1">
+                              <span>充值i币</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                    </ul>
+                </div>
+                <div class="main ">
+                    <ul>
+                      <li>
+                          <div class="expenseList1">
+                              <span>支出</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                      <li>
+                          <div class="expenseList1">
+                              <span>充值i币</span>
+                              <span>+200</span>
+                            </div>
+                            <div class="expenseList2">
+                              <span>2018-11-20 13：13</span>
+                              <span>余额：252</span>
+                            </div>
+                      </li>
+                    </ul>
+                </div>
+
+                   
+            </div>            
+
+           </div>
+      
+      </div>
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+    </script>
+    </body>
+
+</html>
+<script  src="../js/echarts.min.js"></script>
+<script  src="../js/jquery-1.12.2.js"></script>
+<script>
+  window.onload = function () {
+
+	}
+   $(function(){
+        $('.monthList li').click(function(){
+            $(this).addClass('month-active')
+            $(this).siblings().removeClass('month-active')
+        })
+    })
+
+
+  // 全部收入支出tab
+    $(function () {
+    $('.tabNav>.tab-item').mouseenter(function () {
+    //    上面tab选项卡的切换
+        $(this).addClass('expense-active')
+               .siblings().removeClass('expense-active')
+
+        var index = $(this).index();
+        // console.log(index)
+        $('.main').eq(index).addClass(' expense-selected')
+            .siblings().removeClass(' expense-selected')
+
+      })
+    })
+
+
+
+     //指定图标的配置和数据
+     var option = {
+      title : {
+          text: '',
+          subtext: '',
+          x:'center'
+      },
+      tooltip : {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
+      legend: {
+          orient: 'vertical',
+          left: 'left',
+          // data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+      },
+      series : [
+          {
+              name: '访问来源',
+              type: 'pie',
+              // radius : '55%',
+              // center: ['50%', '60%'],
+              data:[
+                  {value:55, name:''},
+                  {value:35, name:''},
+                  {value:10, name:''},
+              ],
+              itemStyle: {
+                  emphasis: {
+                      // shadowBlur: 10,
+                      // shadowOffsetX: 0,
+                      // shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  }
+              }
+          }
+      ]
+  };
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chartmain'));
+
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+
+</script>

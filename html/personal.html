@@ -21,17 +21,22 @@
 			.head-img{
 				/* padding: 0.1rem 0 ;  */
 			}
+			#header{
+				z-index: 999999999999;
+			}
 			#serviceBtn{
 				padding: 5px 0;
 				display: flex;
 				align-items: center;
+				justify-content: flex-end;
 				height: 100%;
 			}
 			#serviceBtn img{
-				width: 100%;
-				height: 100%;
+				width: 80%;
+				/* height: 100%; */
 				display: flex;
 				align-items: center;
+				justify-content: flex-end;
 			}
 			.mui-content{
 				/* padding: 0 10px; */
@@ -99,6 +104,7 @@
       }
 			.mui-input-row label{
 				padding:  15px;
+				width: 100%;
 			}
 			.user-info{
 				margin-top: 10px;
@@ -120,7 +126,7 @@
 				top: 50%;
 				transform: translateY(15%);
 			}
-			#userName{
+			#userName,#enterpriseName{
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
@@ -212,6 +218,68 @@
 			.mui-btn-block{
 				margin-bottom: 0px;
 			}
+			/* .personalTab{
+				display: none;
+			} */
+			.personalTab2{
+				display: block;
+			}
+			.disposeBox{
+				padding: 0 15px;
+			}
+			.disposeTitle{
+				padding: 10px 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.disposeTitle span:last-child{
+				position: relative;
+			}
+			.disposeTitle span:last-child::before{
+				clear: both;
+				display: block;
+				content: "";
+				height: 20px;
+				width: 20px;
+				background: url('../images/drawable-xhdpi/question.png') no-repeat;
+				background-size: 100% 100% ;
+				position: absolute;
+				left: -40%;
+			}
+			.dispose-photo{
+				display: flex;
+				width: 100%;
+			}
+			.dispose-photo .add-photo{
+				padding: 30px;
+				width: 33.33%;
+				height: 3.3rem;
+				background-color: pink;
+				border: 1px dashed #999;
+				border-radius: 8px ;
+				width: 50%;
+				background-color: #fff;
+				position: relative;
+				margin-left: 10px;
+			}
+			.dispose-photo .add-photo:first-child{
+				margin-left: 0;
+			}
+			.dispose-photo .add-photo img{
+				position: absolute;
+				width: 35%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50% , -50%);
+			}
+			.disposeTxt{
+				padding: 10px 0 ;
+			}
+			.disposeTxt p{
+				margin-bottom:  0 ;
+				color: #666;
+			}
     </style>
 	</head>
 
@@ -235,79 +303,143 @@
 
 			<div class="radio-box">
 				<div class="personal">
-					<span class="radioImg2 "></span>
+					<span class="radioImg2 radioImg"></span>
 					<label>个人认证</label>
 				</div> 
 				<div class="enterprise">
-					<span class="radioImg2"></span>
+					<span class="radioImg2 "></span>
 					<label>企业认证</label>
 				</div> 
 			</div>
 
-			<form class="mui-input-group user-info">
-					<div class="mui-input-row">
-							<label>姓名</label>
-					<input type="text" class="mui-input-clear" id="userName" placeholder="请输入用户名">
-					<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
-					</div>
-			</form>
-
-			<div class="mui-input-group user-info">
-					<div class="mui-input-row" id="chooseBtn">
-							<label>证件类型</label>
-							<div class="choose mui-pull-right">
-									<span id="choose">请选择</span>
-									<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+			<div class="personalTab1 ">
+					<form class="mui-input-group user-info">
+							<div class="mui-input-row">
+									<label>姓名</label>
+							<input type="text" class="mui-input-clear" id="userName" placeholder="请输入用户名">
+							<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+							</div>
+					</form>
+		
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="chooseBtn">
+									<label>证件类型</label>
+									<div class="choose mui-pull-right">
+											<span id="choose">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
 							</div>
 					</div>
-			</div>
-
-			<div class="mui-input-group user-info">
-					<div class="mui-input-row" id="genderBtn">
-							<label>性别</label>
-							<div class="choose mui-pull-right">
-									<span id="gender">请选择</span>
-									<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+		
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="genderBtn">
+									<label>性别</label>
+									<div class="choose mui-pull-right">
+											<span id="gender">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
 							</div>
 					</div>
-			</div>
-
-			<div class="encryption">
-				<span>证件号(将加密处理)</span>
-			</div>
-
-			<form class="mui-input-group user-info idNum">
-					<div class="mui-input-row">
-							<input type="text" class="mui-input-clear" id="idNum" placeholder="请填写并确认证件号">
-							<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+		
+					<div class="encryption">
+						<span>证件号(将加密处理)</span>
 					</div>
-			</form>
-
-			<div class="encryption">
-				<span>证件照(将加密处理)</span>
-			</div>
-
-			<div class="positive">
-				<div class="positive-left">
-					<div class="taking-pictures"> 
-							<img src="../images/drawable-xhdpi/jia(1).png" alt="">
-							<span>身份证正面</span>
+		
+					<form class="mui-input-group user-info idNum">
+							<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" id="idNum" placeholder="请填写并确认证件号">
+									<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+							</div>
+					</form>
+		
+					<div class="encryption">
+						<span>证件照(将加密处理)</span>
 					</div>
-				</div>
-				<div class="positive-right">
-					<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
-				</div>
-			</div>
-			<div class="positive contrary">
-				<div class="positive-left">
-					<div class="taking-pictures">
-						<img src="../images/drawable-xhdpi/jia(1).png" alt="">
-						<span>身份证反面</span>
+		
+					<div class="positive">
+						<div class="positive-left">
+							<div class="taking-pictures"> 
+									<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+									<span>身份证正面</span>
+							</div>
+						</div>
+						<div class="positive-right">
+							<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+						</div>
 					</div>
-				</div>
-				<div class="positive-right">
-					<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
-				</div>
+					<div class="positive contrary">
+						<div class="positive-left">
+							<div class="taking-pictures">
+								<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+								<span>身份证反面</span>
+							</div>
+						</div>
+						<div class="positive-right">
+							<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+						</div>
+					</div>
+			</div>
+			<div class="personalTab2 ">
+					<form class="mui-input-group user-info">
+							<div class="mui-input-row">
+									<label>企业名称</label>
+							<input type="text" class="mui-input-clear" id="enterpriseName" placeholder="请输入企业名称">
+							<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+							</div>
+					</form>
+
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="contractorBtn">
+									<label>签约人类型</label>
+									<div class="choose mui-pull-right">
+											<span id="choose">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="natureBtn">
+									<label>企业性质</label>
+									<div class="choose mui-pull-right">
+											<span id="gender">机构(法院)</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+
+					<div class="encryption">
+						<span>组织机构代码证号码(将加密处理)</span>
+					</div>
+
+					<form class="mui-input-group user-info idNum">
+							<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" id="IdNo" placeholder="请填写并确认证件号">
+									<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+							</div>
+					</form>
+
+					<div class="disposeBox">
+					  <div class="disposeTitle">
+							<span>证件号(将加密处理)</span>
+							<span>审核标准</span>
+						</div>
+
+						<div class="dispose-photo">
+							<div class="add-photo">
+								<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+							</div>
+							<div class="add-photo"></div>
+							<div class="add-photo"></div>
+						</div>
+						<div class="disposeTxt">
+								<p>*法人本人签约：请上传组织机构代码证复印件加盖公章照片，法人本人手持身份证拍照照片，共两张。</p>
+								<p>*代理人签约上传以下三张照片：1) 盖有公章的组织机构代码证复印件照片; 2) 联系客服下载并打印授权委托书模板，书写空白处后，加盖公章的照片证明； 3) 代理人手持身份证照片。*24小时人工审核，若需要加急审核，请在右上角类型客服。</p>
+						</div>
+
+					</div>
+					
+
 			</div>
 
 			<button type="button" id="certificationBtn" class="mui-btn mui-btn-primary mui-btn-block">去认证</button>
@@ -360,29 +492,23 @@
 		// 单选框
 		function radioBtn() {
 				$(function () {
-					flag = false;
+					
 						$(".radioImg2:eq(0)").on("click",function(){
 							$(this).addClass('radioImg')
 							$(".radioImg2:eq(1)").removeClass('radioImg')
+							// $(".personalTab").removeClass('personalTab2')
+							$('.personalTab1').show()
+							$('.personalTab2').hide()
+
 						})
 						$(".radioImg2:eq(1)").on("click",function(){
 							$(this).addClass('radioImg')
 							$(".radioImg2:eq(0)").removeClass('radioImg')
-						})
-
-
-					// $('.radioImg2 ').click(function () {
-					// 	console.log($('.radioImg2:eq(1)'))
-					// 	$(this).toggleClass('radioImg')
-						
+							$('.personalTab1').hide()
+							$('.personalTab2').show()
 							
-					// 		// var flag_all = false;
-					// 		// $.each($('.radioImg2'), function () {
-					// 		// 		if ($(this).hasClass('radioImg')) {
-					// 		// 				flag_all = true;
-					// 		// 		}
-					// 		// })
-					// })
+							// $(".personalTab").removeClass('personalTab2')
+						})
 				})
 		}
 
