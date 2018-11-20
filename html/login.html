@@ -83,7 +83,8 @@
 				margin: 0 auto;
 				border-radius: 20px;
 				text-align: center;
-	    		background: linear-gradient(-120deg,#E4FAF1,#1AA0FF);
+				color: #fff;
+	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
 			}
 			.yanzhengma{
 				position: relative;
@@ -102,7 +103,7 @@
 		</header>
 		<div class="logindiv">
 			<h2>您好,</h2>
-			<span class="welcome">欢迎来到智慧珠海, 请立即<span class="reg">注册</span></span>
+			<span class="welcome">欢迎来到智慧珠海, 请立即<span class="reg" id="enrollBtn">注册</span></span>
 			<form class="mui-input-group login">
 				<div class="mui-input-row">
 					<img class="labelimg" src="../images/drawable-xhdpi/yonghuming.png"/>
@@ -117,7 +118,7 @@
 		<div class="loginbtn">
 			立刻登录
 		</div>
-		<div class="yanzhengma">
+		<div class="yanzhengma" id="codeLoginBtn">
 			<h5>验证码登录</h5>
 		</div>
 		<script type="text/javascript">
@@ -130,3 +131,15 @@
 	</body>
 
 </html>
+<script>
+	
+	var enrollBtn = document.getElementById('enrollBtn');
+	enrollBtn.onclick = function(){
+      window.location.href = "../html/reg.html";
+    }
+
+	var codeLoginBtn = document.getElementById('codeLoginBtn');
+	codeLoginBtn.onclick = function(){
+      window.location.href = "../html/reg2.html";
+    }
+</script>

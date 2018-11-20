@@ -28,12 +28,25 @@
 	    	.mui-content{
 	    		width: 100%;
 	    	}
+			.mui-table-view{
+				margin-top: 10px !important;
+			}
 	    	.user{
 	    		height: 250px;
 	    		/*border: 1px solid black;*/
 	    	}
-	    	.lists{
-	    	}
+
+			.mui-table-view:before,.mui-table-view::after{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 0;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
 			.mui-bar .mui-title{
 				font-weight: 400;
 				color: #fff;
@@ -97,6 +110,12 @@
 	    		vertical-align: middle;
 	    		margin-left: 10px;
 	    	}
+			.mui-table-view-cell:after{
+				width: 91%;
+			}
+			.mui-table-view-cell{
+				padding: 12px 15px;
+			}
 
 			.footTab {
 				background-color: #fff;
@@ -120,10 +139,14 @@
 				flex-direction: column;
 				text-align: center;
 				color: #999;
+				/* font-size: 22px; */
+			}
+			.footTab a span{
+				font-size: 14px;
 			}
 			.footTab a img{
-				width: 15%;
-		    margin: 0 auto;
+				width: 13%;
+				margin: 0 auto;
 			}
 			.nav-active span{
 				color: #17a5fe;
@@ -132,6 +155,10 @@
 				box-shadow:0 !important;
 				-webkit-box-shadow:0 !important;
 			}
+			 .footTab{
+				 padding: 10px 0s;
+			 }
+
     	</style>
 	</head>
 
@@ -146,9 +173,9 @@
 		    	<img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/>
 		    	<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
 		    	<span class="name">请登录</span>
-		    	<span class="loginbtn">
+		    	<span class="loginbtn" id="loginbtn">
 					<img class="login-img" src="../images/drawable-xhdpi/用户(1).png"/>
-		    		<span class="login-span">登出</span>
+		    		<span class="login-span">登入</span>
 		    	</span>
 		    </div>
 		    <div class="lists">
@@ -202,3 +229,9 @@
 	</body>
 
 </html>
+<script >
+    var loginbtn = document.getElementById('loginbtn');
+    loginbtn.onclick = function(){
+      window.location.href = "../html/login.html";
+    }
+</script>
