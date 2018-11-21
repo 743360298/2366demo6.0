@@ -54,9 +54,9 @@
 			}
 			.labelimg{
 				width: 25px;
-				height: 25px;
-				line-height: 25px;
-				margin: 5px;
+				height: 20px;
+				line-height: 20px;
+				margin:8px 5px;
 			}
 			
 			#phone{
@@ -66,7 +66,11 @@
 			.emailreg{
 				float: left;
 			}
-			.tel{
+			#logintext{
+				display: block;
+				float: right;
+			}
+			#loginlink{
 				color: #1BA0FF;
 			}
 			.loginbtn{
@@ -89,42 +93,65 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		</header>
 		<div class="regdiv">
-			<h3>设置密码</h3>
+			<h3>邮箱注册</h3>
 			<form class="mui-input-group login">
 				<div class="mui-input-row">
-					<img class="labelimg" src="../images/drawable-xhdpi/phone.png"/>
-					<input type="password" name="password" id="phone" placeholder="请输入密码"/>
+					<img class="labelimg" src="../images/drawable-xhdpi/email.png"/>
+					<!-- <input type="text" name="phone" id="phone" placeholder="13800138000"/> -->
+					<input type="text" name="phone" id="phone" placeholder="请输入邮箱"/>
 				</div>
 			</form>
-			<span class="emailreg">
-				密码格式应为6-16位数字,字母或符号,不允许有空格
+			<span class="emailreg" id="phonereg">
+				手机号注册
+			</span>
+			<span id="logintext">
+				已有账号?<span id="loginlink">登录</span>
 			</span>
 		</div>
 		</div>
 		<div class="loginbtn" id="loginbtn">
-			完成并登录
+			下一步
 		</div>
 		
 		<script type="text/javascript">
 			mui.plusReady(function(){
-				
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
 				mui(".loginbtn")[0].addEventListener('tap',function(){
-					var wvs=plus.webview.all();
-				    for(var i=0;i<wvs.length;i++){
-				    	if(wvs[i].id=="reg" || wvs[i].id=="reg2" || wvs[i].id=="reg3")
-				    	wvs[i].close()
-				    }
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
 				})
 			})
 		</script>
 	</body>
 
 </html>
+
+<!-- <script src="../js/register.js"></script> -->
 <script src="../js/jquery-1.12.2.js"></script>
 <script src="../js/common.js"></script>
 <script>
-
 	
+	var loginlink = document.getElementById('loginlink');
+	loginlink.onclick = function(){
+      window.location.href = "../html/login.html";
+	}
+	
+	var phonereg = document.getElementById('phonereg');
+	phonereg.onclick = function(){
+      window.location.href = "../html/reg.html";
+  }
+
+	var loginbtn = document.getElementById('loginbtn');
+	loginbtn.onclick = function(){
+      // window.location.href = "../html/reg2.html";
+	}
+
+
 	$(function(){
       init();
       function init(){
@@ -133,16 +160,17 @@
 			
 			function eventList(){
 				$("#loginbtn") .on("click",function(){
-					var password_txt = $.trim($("[name='password']").val());
-							// if(!$.checkPhone(password_txt)){
-							// 	console.log(password_txt);
-							// 		// 非法 
-							// 		mui.toast("密码不规范");
-							// 		return ;
-							// }
+					var phone_txt = $.trim($("[name='phone']").val());
+							if(!$.checkPhone(phone_txt)){
+								console.log(phone_txt);
+									// 非法 
+									mui.toast("手机号不正确");
+									return ;
+							}
+
 
 						
-					var apiurl = "/hyapi/user/setpassword";
+					var apiurl = "/hyapi/user/sendvcode";
 
 
 
@@ -150,8 +178,8 @@
 
 					var param = {
 						common_param : JSON.stringify({
-							"password":password_txt,
-							// "unique":_uniqueid
+							"mobile":phone_txt,
+							"unique":_uniqueid
 						}),
 						token: ""
 					}
@@ -177,5 +205,8 @@
 			}
  })
 
-	
+
+
+
+
 </script>

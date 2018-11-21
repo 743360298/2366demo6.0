@@ -102,7 +102,7 @@
 			</span>
 		</div>
 		</div>
-		<div class="loginbtn">
+		<div class="loginbtn" id="loginbtn">
 			60s
 		</div>
 		
@@ -116,3 +116,9 @@
 	</body>
 
 </html>
+<script>
+		var loginbtn = document.getElementById('loginbtn');
+	loginbtn.onclick = function(){
+      window.location.href = "../html/reg3.html";
+	}
+</script>

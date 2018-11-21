@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    img{
+      margin: 0;
+      padding: 0;
+    }
+			body {
+        background-color: #eaeaea;
+      }
+      #header{
+        background-color: #fff;
+      }
+			.mui-bar .mui-bar-nav {
+				box-shadow: none;
+        background-color: rgba(255,255,255);
+			}
+      .mui-content{
+				/* padding: 0 0.7rem; */
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+			 #topupBtn,#reflectBtn{
+				 /* margin-top: 1rem; */
+				 /* width: 590px; */
+				 /* height: 80px; */
+				 border-radius: 50px;
+				 width: 60%;
+				 margin: 1rem auto 0;
+				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				 border: 0;
+				 /* height: 0.8rem; */
+				 /* line-height: 0.8rem; */
+			 }
+       #reflectBtn{
+        margin: 0.3rem auto ;
+        background-image: linear-gradient(55deg,#999,#999);
+        }
+
+
+			 .mui-btn-block{
+				 padding: 8px 0;
+			 }
+       .balanceBox{
+         padding: 10px;
+         /* background-color: #fff; */
+       }
+       .balanceBox img{
+         width: 100%;
+         /* opacity: 0; */
+       }
+       .balanceBg{
+	    	background: url('../images/drawable-xhdpi/ka.png') no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 3.5rem;
+          padding: 22px;
+          color: #fff;
+	    	}
+        .balanceImg .icon{
+          width: 20%;
+          background-color: #fff;
+          border-radius: 50%;
+          box-shadow: 0px 0px 5px #888888;
+          border: 6px solid #fff;
+        }
+        .balanceTxt>span{
+          display: block;
+          /* margin: 5px 0 0; */
+        }
+        .balanceNum{
+          margin-top: 8px;
+          display: flex
+        }
+        .balanceNum .balanceNumImg{
+          width: 7%;
+          height: 7%;
+        }
+        #iNum{
+          font-size: 22px;
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+        }
+		</style>
+	</head>
+
+	<body>
+
+    <header id="header" class="mui-bar mui-bar-nav">
+      <h1 class="mui-title">i 币余额</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+      <button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">明细</button>
+		</header>
+		
+    <!-- 余额 -->
+    <div class="mui-content">
+        <div class="balanceBox">
+          <div class="balanceBg">
+            <div class="balanceImg">
+                <img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
+            </div>
+            <div class="balanceTxt">
+              <span>我的i币</span>
+              <div class="balanceNum">
+                <img class='balanceNumImg' src="../images/drawable-xhdpi/i币.png" alt="">
+                <span id="iNum">2000.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<button type="button" id="topupBtn" class="mui-btn mui-btn-primary mui-btn-block">充值</button>
+				<button type="button" id="reflectBtn" class="mui-btn mui-btn-primary mui-btn-block">提现</button>
+
+    </div>
+    
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+		
+	</body>
+
+</html>
+
+<script>
+  	var topupBtn = document.getElementById('topupBtn');
+    topupBtn.onclick = function(){
+      window.location.href = "../html/top-up.html";
+    }
+</script>

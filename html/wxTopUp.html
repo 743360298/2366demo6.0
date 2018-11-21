@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/public.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.12.2.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    img{
+      margin: 0;
+      padding: 0;
+    }
+			body {
+        background-color: #eaeaea;
+      }
+      #header{
+        background-color: #fff;
+      }
+			.mui-bar .mui-bar-nav {
+				box-shadow: none;
+        background-color: rgba(255,255,255);
+			}
+      .mui-content{
+				padding: 15px;
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+			 #nextstepBtn{
+				 /* margin-top: 1rem; */
+				 /* width: 590px; */
+				 /* height: 80px; */
+				 border-radius: 50px;
+				 width: 60%;
+				 margin: 30px auto 0 ;
+				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				 border: 0;
+				 /* height: 0.8rem; */
+				 /* line-height: 0.8rem; */
+			 }
+       .BankCard{
+         margin-top: 15px;
+         padding:20px 15px;
+         display: flex;
+         justify-content: space-between;
+         background-color: #f7f7f7;
+       }
+       .BankCard>span{
+         font-size: 17px;
+       }
+       .BankCardId{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-content: space-between;
+        margin-right:45px;
+       }
+       .BankCardId>span:first-child{
+         font-size: 16px;
+         color: #1570eb;
+       }
+       .BankCardId>span:last-child{
+         opacity: 0;
+         font-size: 14px;
+         color: #999999;
+         margin-top: 5px;
+       }
+       .amount{
+         background-color: #fff;
+       }
+       .BankCardImg{
+         margin-right: 30px;
+         position: absolute;
+         width: 50%;
+         top: 2px;
+         left: -88%;
+         width: 70%;          
+       }
+       .amount{
+         padding:20px 15px;
+       }
+       .amountInput{
+         margin-top: 20px;
+         display: flex;
+         border-bottom: 1px solid #999;
+       }
+       .amountInput>span{
+         font-size: 22px;
+         display: flex;
+         align-items: center;
+       }
+       .amountInput #amountMoney{
+         border: 0;
+         display: flex;
+         align-items: center;
+         margin-bottom:0 ;
+         width: 100%;
+       }
+       .mui-input-row{
+         width: 100%;
+       }
+       .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+			.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech{
+        top: 9px;
+      }
+      .user-info{
+				height: 100%;
+        width: 100%;
+				font-size: 20px;
+				padding-right: 15px;
+			}
+      
+      .bouncedBox{
+        width: 100%;
+        height: 7.8rem;
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: 100%;
+        transition: all 0.5s;
+        /* display: none; */
+        z-index: 99999999999999999999;
+      }
+      .top0{
+
+        transform: translateY(-100%);
+      }
+      .bouncedHead{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        position: relative;
+      }
+      .bouncedHead::after{
+        clear: both;
+        display: block;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: #999;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .bouncedHead img{
+        width: 5%;
+        height: 20%;
+      }
+      .bouncedAmount{
+        position: relative;
+        height: 110px;
+        width: 100%;
+      }
+      .bouncedMoney{
+        font-size: 42px;
+        color: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% ,0%)
+      }
+      .bouncedBox2{
+        padding: 15px;
+        width:100%;
+        height: 100%;
+      }
+      .bouncedBox2 .bouncedInfo{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        padding: 10px 0;
+        margin-bottom: 10px;
+      }
+      .bouncedInfo::after{
+        clear: both;
+        display: block;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: #999;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .bouncedInfo span:first-child{
+        color: #666;
+      }
+      .bouncedInfo span:last-child{
+        color: #333;
+      }
+      .bouncedInfo>div>span:first-child{
+        color: #333;
+      }
+      #paymentBtn{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 10px auto;
+        width: 80%;
+        border: 0;
+        border-radius: 10px;
+        background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+      }
+		</style>
+	</head>
+
+	<body>
+
+    <header id="header" class="mui-bar mui-bar-nav">
+      <h1 class="mui-title">i 币充值</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		
+    <!-- 充值 -->
+    <div class="mui-content">
+
+      <div class="BankCard">
+        <span>微信</span>
+        <div class="BankCardId">
+          <span>微信</span>
+          <img class="BankCardImg" src="../images/drawable-xhdpi/微信零钱.png" alt="">
+          <!-- <span>单日交易限额￥</span> -->
+        </div>
+      </div>
+
+      <div class="amount">
+         <span>充值金额</span>
+        <div class="amountInput">
+          <span>￥</span>
+          <form class="mui-input-group user-info">
+							<div class="mui-input-row">
+							<input type="text" class="mui-input-clear" id="amountMoney">
+							<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+							</div>
+					</form>
+        </div>
+
+        <button type="button" id="nextstepBtn" class="mui-btn mui-btn-primary mui-btn-block">下一步</button>
+      </div>
+    </div>
+
+
+      <!-- 弹框 -->
+      <div class="bouncedBox">
+        <div class="bouncedHead">
+          <img id="ShutDownBtn" src="../images/drawable-xhdpi/错误.png" alt="">
+          <span>确定付款</span>
+          <img src="../images/drawable-xhdpi/问题5.png" alt="">
+        </div>
+        <div class="bouncedAmount">
+           <div class="bouncedMoney">￥<span>100.00</span></div>
+        </div>
+  
+        <div class="bouncedBox2">
+          <div class="bouncedInfo">
+            <span>订单信息</span>
+            <span>i 币充值</span>
+          </div>
+          <div class="bouncedInfo">
+            <span>付款方式</span>
+            <div>
+              <span>余额宝</span>
+              <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+            </div>
+          </div>
+  
+          <button type="button" id="paymentBtn" class="mui-btn mui-btn-primary mui-btn-block">立即付款</button>
+        </div>
+  
+      </div>
+      
+      <!-- 遮罩层 -->
+      <div class="mui-popup-backdrop mui-active" style="display: none"></div>
+      
+  
+
+
+
+    
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+		
+	</body>
+
+</html>
+<script>
+  	var nextstepBtn = document.getElementById('nextstepBtn');
+    nextstepBtn.onclick = function(){
+      // window.location.href = "../html/user.html";
+		}
+
+
+    
+
+ // 点击下一步弹出弹框
+ $("#nextstepBtn").on("click",function(){
+      $(".bouncedBox").addClass('top0')
+        // $(".bouncedBox").slideDown(300)
+        $(".mui-active").fadeIn(300)
+    })
+
+    // 点击关闭隐藏弹框
+     $("#ShutDownBtn").on("click",function(){
+      $(".bouncedBox").removeClass('top0')
+        // $(".bouncedBox").slideUp(300)
+        $(".mui-active").fadeOut(300)
+    })
+      
+    // 点击遮罩层隐藏弹框
+     $(".mui-active").on("click",function(){
+      $(".bouncedBox").removeClass('top0')
+        $(".mui-active").fadeOut(300)
+    })
+
+
+
+
+
+</script>
