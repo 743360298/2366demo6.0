@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/zepto.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #fff;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				/* padding: 0 0.3rem; */
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style: none;
+      }
+      .detailBox{
+        margin-top: 0.2rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 0.15rem 0.3rem ;
+      }
+      .expenseList1 , .expenseList2{
+        display: flex;
+        justify-content: space-between;
+      }
+      .expenseList1 span, .expenseList2 span{
+        font-size: 0.33rem;
+        margin-top: 10px;
+        line-height: initial;
+      }
+      .expenseList2 span{
+        color: #666;
+      }
+      .detailList li{
+        padding-bottom: 10px;
+        border-bottom: 0.5px solid #eaeaea;
+      }
+
+
+      .isRen{
+        color: red;
+      }
+      .negativeBlue{
+        color:#1281e0;
+      }
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">i 币明细</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+      </header>
+
+      <div class="mui-content">
+          <div class="detailBox">
+              <ul class="detailList">
+                <li>
+                    <div class="expenseList1">
+                        <span>银行卡充值</span>
+                        <span class="isRen">+200</span>
+                      </div>
+                      <div class="expenseList2">
+                        <span>2018-11-20 13：13</span>
+                        <span>余额：252</span>
+                        <!-- 判断正红.isRen 负蓝.negativeBlue -->
+                      </div>
+                </li>
+                <li>
+                    <div class="expenseList1">
+                        <span>i币转出(陈小姐)</span>
+                        <span  class="negativeBlue">-200</span>
+                      </div>
+                      <div class="expenseList2">
+                        <span>2018-11-20 13：13</span>
+                        <span>余额：252</span>
+                      </div>
+                </li>
+              </ul>
+          </div>
+      </div>
+
+
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	<!-- Code injected by live-server -->
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
+<script>
+    	var opendetail = document.getElementById('opendetail');
+    opendetail.onclick = function(){
+      window.location.href = "../html/detail.html";
+    }
+</script>
+
+

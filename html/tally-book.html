@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/public.js"></script>
 		<script src="../js/slidingEvent.js"></script>
@@ -70,11 +71,12 @@
       .monthList li{
         margin:-1px -3px;
         display:inline-block;
-        padding: 25px 15px;
+        padding: 0.3rem 0.15rem;
         text-align: center;
         line-height: initial;
         font-family: '微软雅黑';
         font-weight: 500;
+        font-size: 0.24rem;
       }
       .month-active{
         background-color: #1aa0ff;
@@ -174,7 +176,8 @@
         width: 33.33%;
         display: flex;
         justify-content: center;
-        padding: 15px 0 ;
+        padding: 0.25rem 0 ;
+        font-size: 0.3rem;
       }
       .expense-active{
         color: #1aa0ff;
@@ -185,8 +188,8 @@
         clear: both;
         display: block;
         content: "";
-        height: 1px;
-        width: 20px;
+        height: 0.02rem;
+        width: 0.2rem;
         background-color: #1aa0ff;
         position: absolute;
         left: 50%;
@@ -194,7 +197,7 @@
         transform: translate(-50% ,-50%)
       }
       .expenseTabBox{
-        padding: 0 15px ;
+        padding: 0 0.15rem ;
         background-color: #fff;
       }
       .main{
@@ -208,12 +211,13 @@
       }
 
       .expenseList1 , .expenseList2{
-        
+        font-size: 0.28rem;
         display: flex;
         justify-content: space-between;
       }
       .expenseList1 span, .expenseList2 span{
-        margin-top: 10px;
+        margin-top: 0.1rem;
+        line-height: initial;
       }
       .expenseList2 span{
         color: #666;

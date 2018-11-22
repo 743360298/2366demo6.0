@@ -14,8 +14,17 @@
 		</script>
 		<style type="text/css">
 			body {
-				background: url(../images/drawable-xhdpi/loginbackground.png);
 				padding: 60px 18px;
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			html{
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
 			}
 			
 			.mui-bar.mui-bar-nav {
@@ -23,9 +32,32 @@
 			}
 			
 			.help {
-				width: 30px;
+				width: 68%;
+				margin-top: 12px;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
+
+			.logindiv::before,.logindiv::after{
+				width: 88%;
 				height: 30px;
-				margin-top: 5px;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				position: absolute;
+				clear: both;
+				display: block;
+				content: "";
+				left: 50%;
+				bottom: -13px;
+				transform: translate(-50%);
+				opacity: 0.7;
+			}
+			.logindiv::after{
+				width: 80%;
+				bottom: -23px;
+				opacity: 0.4;
 			}
 			.logindiv{
 				position: absolute;
@@ -35,7 +67,11 @@
 				background-color: #fff;
 				border-radius: 20px;
 				border: 1px solid #fff;
+				z-index: 9999;
+				left: 50%;
+				transform: translate(-50%);
 			}
+
 			.welcome{
 				display: block;
 				margin-top: 16px;
@@ -75,7 +111,7 @@
 				border-bottom: 1px solid #eee;
 			}
 			.loginbtn{
-				position: relative;
+				/* position: relative; */
 				top: 280px;
 				width: 280px;
 				height: 40px;
@@ -84,12 +120,14 @@
 				border-radius: 20px;
 				text-align: center;
 				color: #fff;
-	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				margin-top: 50px;
+	    		background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
 			}
 			.yanzhengma{
-				position: relative;
+				/* position: relative; */
 				top: 300px;
 				text-align: center;
+				margin-top: 20px;
 			}
 		</style>
 	</head>
@@ -114,13 +152,17 @@
 					<input type="password" name="password" id="password" placeholder="请输入密码" />
 				</div>
 			</form>
+			<div class="loginbtn">
+				立刻登录
+			</div>
+			<div class="yanzhengma" id="codeLoginBtn">
+				<h5>验证码登录</h5>
+			</div>
 		</div>
-		<div class="loginbtn">
-			立刻登录
-		</div>
-		<div class="yanzhengma" id="codeLoginBtn">
-			<h5>验证码登录</h5>
-		</div>
+
+
+
+
 		<script type="text/javascript">
 			mui.plusReady(function(){
 				mui(".reg")[0].addEventListener('tap',function(){

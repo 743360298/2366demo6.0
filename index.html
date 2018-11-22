@@ -7,9 +7,11 @@
 		<title>首页</title>
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/jquery-1.12.2.js"></script>
+		<script src="js/public.js"></script>
 		<style>
 			.mui-slider {
-				height: 12rem;
+				height: 3.6rem;
 				background-color: #fff;
 				display: flex;
 				align-items: center;
@@ -21,7 +23,14 @@
 			}
 			
 			.mui-slider-item {
-				margin: 0 0.5rem;
+				margin: 0 0.1rem;
+			}
+			.mui-content{
+				padding-bottom: 1rem;
+				background-color: #eaeaea;
+			}
+			.swiper-container{
+				padding: 10px 0 ;
 			}
 			
 			.mui-row {
@@ -38,14 +47,20 @@
 			}
 			
 			.mui-row div a img {
-				width: 5rem;
-				height: 5rem;
-				margin-left: 6px;
+				width: 4rem;
+				height: 4rem;
+				/* margin-left: 6px; */
+				margin: 0 auto;
+				display: flex;
+				background-color: #fff;
+				border-radius: 50%;
 				/*border: 1px solid black;*/
 			}
 			
 			.mui-row div a p {
+				font-size: 0.8rem;
 				text-align: center;
+				margin-top: 5px;
 			}
 			.footTab {
 				background-color: #fff;
@@ -62,6 +77,9 @@
 				right: 0;
 				left: 0;
 			}
+			.footTab{
+				height: 0.9rem;
+			}
 			.footTab a{
 				display: flex;
 				width: 50%;
@@ -69,30 +87,110 @@
 				flex-direction: column;
 				text-align: center;
 				color: #999;
-				font-size: 14px
+				font-size: 0.24rem;
 				/* font-size: 13px; */
 			}
 			.footTab a img{
-				width: 13%;
+				width: 0.42rem;
+				height: 0.4rem;
 		    margin: 0 auto;
+			}
+			.footTabnav{
+				line-height: initial;
 			}
 			.nav-active span{
 				color: #17a5fe;
+				font-size: 0.24rem;
+			}
+			.mui-slider-item{
+				transition: all 0.1s;
+			}
+			.mui-slider-group{
+				/* transition: all 0.1s!important ; */
+				
+			}
+			.swiper-slide img{
+				width: 100%;
+			}
+			.mui-active{
+				transform:scale(1,1.1) !important  ;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.content{
+				width: 100%;
+			}
+			.indexList{
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+			}
+			.indexList li{
+				margin-top: 0.1rem;
+				width: 25%;
+				display: flex;
+				flex-direction: column;
+			}
+			.indexList li img{
+				width: 80%;
+				border-radius: 50%;
+				margin: 0 auto;
+				/* display: flex;
+				justify-content: center; */
+			}
+			.indexList li p{
+				text-align: center;
+				line-height: initial;
+				margin-top: 0.1rem;
+				font-size:	0.24rem
+			}
+			.head{
+				height: 0.8rem;
+				background-color: #fff;
+				position: relative;
+			}
+			.head::after{
+				position: absolute;
+				clear: both;
+				display: block;
+				content: "";
+				height: 1px;
+				width: 100%;
+				background-color: #ccc;
+				bottom: 0;
+				left: 0;;
+			}
+			.head .mui-title{
+				line-height:  0.8rem;
+				width: 100% !important;
+				font-size: 0.36rem;
+				margin: 0 !important;;
+				padding: 0;
+				color: #000;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
+		<header class="head">
 			<h1 class="mui-title">首页</h1>
 		</header>
+
+
 		<div class="mui-content">
 			<div class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
 					<div class="mui-slider-item">
 						<a href="#"><img src="images/drawable-xhdpi/banner.png" /></a>
 					</div>
-					<div class="mui-slider-item">
+					<div class="mui-slider-item mui-active">
 						<a href="#"><img src="images/drawable-xhdpi/banner.png" /></a>
 					</div>
 					<div class="mui-slider-item">
@@ -103,77 +201,66 @@
 					</div>
 				</div>
 			</div>
-			<div class="mui-row">
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
-				</div>
-				<div class="mui-col-sm-3">
-					<a>
-						<img src="images/drawable-xhdpi/jifen.png"/>
-						<p>xx平台</p>
-					</a>
+
+			<div class="content">
+					<ul class="indexList">
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>租房管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>智能家居管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>酒店订房</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>广告推送管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>商城管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>太阳能管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>订餐管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>粮食温控管理</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>便民服务</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>棋牌游戏</p>
+						</li>
+						<li>
+								<img src="images/drawable-xhdpi/jifen0.png"/>
+								<p>机票预订管理</p>
+						</li>
+					</ul>
 				</div>
 			</div>
-		</div>
+
+			
 
 		<nav class="  footTab">
-				<a class="nav-active" href="index.html">
-					<img src="images/drawable-xhdpi/首页.png" alt="">
+				<a class=" footTabnav nav-active " href="index.html">
+					<img src="images/drawable-xhdpi/shouye2.png" alt="">
 					<span class="mui-tab-label">首页</span>
 				</a>
-				<a  href="html/user.html">
-					<img src="images/drawable-xhdpi/我的.png" alt="">
+				<a class="footTabnav" href="html/user.html">
+					<img src="images/drawable-xhdpi/wde1.png" alt="">
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>
@@ -226,8 +313,43 @@
 						activePage = targetPage;
 					});
 				});
+
+
+
 			})();
 		</script>
 	</body>
+	<script type="text/javascript">
+		console.log($('.mui-slider-item'))
+		var index_=2;
 
+		// setInterval(function(){
+		// 	index_++
+		// 	if(index_>4){
+		// 		index_=0;
+		// 	}
+		// 	$('.mui-slider-item').removeClass('mui-active');
+		// 	$('.mui-slider-item').eq(index_).addClass('mui-active');
+
+		// },3000)
+		var gallery= mui('.mui-slider');
+     gallery.slider({
+         interval:4000 ,
+     });
+
+
+	
+	</script>
 </html>
+
+  <!-- Initialize Swiper -->
+  <!-- <script>
+			var swiper = new Swiper('.swiper-container', {
+				slidesPerView: 3,
+				spaceBetween: 10,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+			});
+		</script> -->

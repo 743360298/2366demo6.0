@@ -407,7 +407,7 @@
 			},
 			"html/login.html": {
 				"resources": [
-					"images/drawable-xhdpi/问题.png",
+					"images/drawable-xhdpi/wt.png",
 					"images/drawable-xhdpi/登录背景.png"
 				],
 				"refer": [

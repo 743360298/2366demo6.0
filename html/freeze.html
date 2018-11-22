@@ -8,6 +8,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
 		<script src="../js/mui.min.js"></script>
     <script src="../js/public.js"></script>
     <script src="../js/zepto.js"></script>
@@ -35,6 +36,10 @@
       .freeze{
         /* background-color: pink; */
         padding:0.2rem 0.3rem;
+      }
+      .accountTxt{
+        height: 0.5rem;
+        line-height: 0.5rem;
       }
       .freeze .accountTxt span{
         font-size: 0.32rem;
@@ -118,6 +123,7 @@
         top: 0.05rem;
       }
       #codeInput{
+        font-size: 0.33rem;
         flex: 2;
         border:  0 ;
         display: flex;
@@ -126,7 +132,7 @@
         padding: 0;
         border-radius: 0;
         height: auto;
-        text-indent:  0.2rem;
+        /* text-indent:  0.2rem; */
       }
       .code-input{
         display: flex;
@@ -138,20 +144,18 @@
         display: block;
       }
       #freezeBtn{
-        /* margin-top: 1rem; */
-				 /* width: 590px; */
-				 /* height: 80px; */
+         margin-top: 1rem;
+         width: 5.9rem;
+         height: 0.8rem;
+         margin: 1.2rem auto 0;
 				 border-radius: 50px;
-				 /* width: 67%; */
-				 width: 60%;
-				 margin: 1rem auto ;
-				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
 				 border: 0;
-				 /* height: 0.8rem; */
-				 /* line-height: 0.8rem; */
-			 }
-       .mui-btn-block{
-				 padding: 8px 0;
+         line-height: 0.8rem;
+         font-size: 0.33rem;
+      }
+      .mui-btn-block{
+				 padding: 0px ;
 			 }
     </style>
 	</head>

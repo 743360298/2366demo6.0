@@ -1,0 +1,555 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/public.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.12.2.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    img{
+      margin: 0;
+      padding: 0;
+    }
+    .mui-bar-nav~.mui-content{
+      /* padding-top:  0.44rem; */
+    }
+			body {
+        background-color: #eaeaea;
+      }
+      #header{
+        background-color: #fff;
+      }
+			.mui-bar .mui-bar-nav {
+				box-shadow: none;
+        background-color: rgba(255,255,255);
+			}
+      .mui-content{
+        margin-top: 0.20rem;
+				padding: 0.3rem ;
+        width: 100%;
+        height: 100%;
+        background-color: #eaeaea;
+			}
+			 #nextstepBtn{
+				 border-radius: 50px;
+				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+         left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 0 ;
+        padding: 0;
+        width: 80%;
+        border: 0;
+        background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
+			 }
+       .mui-btn-block{
+				 padding: 0px ;
+			 }
+       .BankCard{
+         margin-top: 0.15rem;
+         padding:0.2rem 0.15rem;
+         display: flex;
+         justify-content: space-between;
+         background-color: #f7f7f7;
+       }
+       .BankCard>span{
+         font-size: 0.30rem;
+       }
+       .BankCardId{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-content: space-between;
+       }
+       .BankCardId>span:first-child{
+         font-size: 0.30rem;
+         color: #1570eb;
+         /* line-height: initial; */
+       }
+       .BankCardId>span:last-child{
+         font-size: 0.28rem;
+         color: #999999;
+         margin-top: 5px;
+         line-height: initial;
+       }
+       .amount{
+         background-color: #fff;
+       }
+       .amount>span{
+         font-size: 0.3rem;
+       }
+       .BankCardImg{
+         position: absolute;
+         top: 2px;
+         left: -12%;
+         width: 10%;          
+       }
+       .amount{
+         padding:0.2rem 0.15rem;
+       }
+       .amountInput{
+         margin-top: 0.2rem;
+         display: flex;
+         border-bottom: 1px solid #999;
+       }
+       .amountInput>span{
+         font-size: 0.3rem;
+         display: flex;
+         align-items: center;
+       }
+       .amountInput #amountMoney{
+         border: 0;
+         display: flex;
+         align-items: center;
+         margin-bottom:0 ;
+         width: 100%;
+       }
+       .mui-input-row{
+         width: 100%;
+       }
+       .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+			.mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech{
+        top: 9px;
+      }
+      .user-info{
+				height: 100%;
+        width: 100%;
+				font-size: 20px;
+				padding-right: 15px;
+			}
+      
+      .bouncedBox{
+        width: 100%;
+        height: 7.8rem;
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: 100%;
+        transition: all 0.5s;
+        /* display: none; */
+        z-index: 99999999999999999999;
+      }
+      .top0{
+
+        transform: translateY(-100%);
+      }
+      .bouncedHead{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        position: relative;
+      }
+      .bouncedHead::after{
+        clear: both;
+        display: block;
+        content: "";
+        height: 0.5px;
+        width: 100%;
+        background-color: #eaeaea;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .bouncedHead img{
+        width: 5%;
+        height: 20%;
+      }
+      .bouncedAmount{
+        position: relative;
+        height: 90px;
+        width: 100%;
+      }
+      .bouncedMoney,.bouncedMoney2{
+        font-size: 42px;
+        color: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% ,0%);
+        flex-direction:column;
+      }
+     .bouncedMoney2{
+        display: flex;
+        transform: translate(-50% ,-50%);
+      }
+      .bouncedMoney2 p{
+        font-size: 32px;
+        color: #000;
+      }
+      .bouncedMoney2 #bouncedChange{
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      .bouncedBox2{
+        padding: 15px;
+        width:100%;
+        height: 100%;
+      }
+      .bouncedBox2 .bouncedInfo{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        padding: 10px 0;
+        margin-bottom: 10px;
+      }
+      .bouncedInfo::after{
+        clear: both;
+        display: block;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: #999;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .bouncedInfo span:first-child{
+        color: #666;
+      }
+      .bouncedInfo span:last-child{
+        color: #333;
+      }
+      .bouncedInfo>div>span:first-child{
+        color: #333;
+      }
+      #paymentBtn{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 10px auto;
+        width: 80%;
+        border: 0;
+        border-radius: 10px;
+        background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
+      }
+
+       /*  密码弹框  */
+      .bouncedPwd{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-90%);
+        width: 90%;
+        height: 250px;
+        background-color: #fff;
+        display: none;
+        z-index: 999999999999;
+      }
+      .bouncedPwdHead img:last-child{
+        opacity: 0;
+      }
+      .bouncedPwdHead{
+        padding: 10px 15px;
+      }
+      .bouncedcard{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        position: relative;
+        margin-top: 2px;
+      }
+      .bouncedcard::after{
+        clear: both;
+        display: block;
+        content: "";
+        height: 0.5px;
+        width: 95%;
+        background-color: #eaeaea;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .bouncedcard::before{
+        clear: both;
+        display: block;
+        content: "";
+        height: 0.5px;
+        width: 95%;
+        background-color: #eaeaea;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .bouncedcardImg img{
+        /* width: 20%; */
+        position: absolute;
+      }
+      .bouncedcardImg span{
+        margin-left: 25px;
+      }
+      .bouncedcard .bouncedcardIcon{
+        color: #999;
+      }
+
+/* 六位密码框 */
+  #payPwd .pwd-wrap{
+    width: 90%;
+    height: 44px;
+    padding-bottom: 1px;
+    margin: 0 auto;
+    background: #fff;
+    border:1px solid #ddd;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  .pwd-wrap li{
+    list-style-type:none;
+    text-align: center;
+    line-height: 44px;
+    -webkit-box-flex: 1;
+    flex: 1;
+    -webkit-flex: 1;
+    border-right:1px solid #ddd ;
+  }
+  .pwd-wrap li:last-child{
+    border-right: 0;
+  }
+  .pwd-wrap li i{
+    height: 10px;
+    width: 10px;
+    border-radius:50% ;
+    background: #000;
+    display: inline-block;
+  }
+
+  .withdrawalMoney{
+    padding: 0.2rem 0 0.3rem;
+    font-size: 0.33rem;
+  }
+  #AllWithdrawal{
+    color:#1aa0ff;
+  }
+		</style>
+	</head>
+
+	<body>
+
+    <header id="header" class="mui-bar mui-bar-nav">
+      <h1 class="mui-title">提现</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		
+    <!-- 提现 -->
+    <div class="mui-content">
+
+      <div class="BankCard">
+        <span>到账银行卡</span>
+        <div class="BankCardId">
+          <span>工商银行&nbsp;&nbsp;&nbsp;(5455)</span>
+          <img class="BankCardImg" src="../images/drawable-xhdpi/gsyh.png" alt="">
+          <span>2小时到账</span>
+        </div>
+      </div>
+
+      <div class="amount">
+         <span>提现金额</span>
+        <div class="amountInput">
+          <span>￥</span>
+              <form class="mui-input-group user-info">
+                  <div class="mui-input-row">
+                  <input type="text" class="mui-input-clear" id="amountMoney">
+                  <span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+                  </div>
+              </form>
+        </div>
+        
+        <div class="withdrawalMoney">本次可提现￥<span class="CanCarry">2000.00</span>,<span id="AllWithdrawal">&nbsp;&nbsp;全部提现</span></div>
+
+        <button type="button" id="nextstepBtn" class="mui-btn mui-btn-primary mui-btn-block">提现</button>
+      </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 密码弹框  -->
+    <div class="bouncedPwd">
+      <div class="bouncedHead bouncedPwdHead">
+        <img id="bouncedPwdBtn" src="../images/drawable-xhdpi/cw.png" alt="">
+        <span>请输入支付密码</span>
+        <img src="" alt="">
+      </div>
+      <div class="bouncedAmount bouncedAmount2">
+        <div class="bouncedMoney2">
+          <span id="bouncedChange">零钱</span>
+          <p>￥<span>100.00</span></p>
+        </div>
+     </div>
+     <div class="bouncedcard">
+       <div class="bouncedcardImg">
+         <img src="../images/drawable-xhdpi/gsyh.png" alt="">
+         <span>工商银行卡储存卡 (5462)</span>
+       </div>
+        <span class="bouncedcardIcon mui-pull-right mui-icon mui-icon-arrowright"></span>
+     </div>
+
+     <div id="payPwd">
+
+        <input ref="pwd" type="password" maxlength="6" v-model="msg"  style="position: absolute;z-index: -1;left:-100%;opacity: 0"/>
+        <ul class="pwd-wrap" @click="focus">
+          <li><i v-if="msgLength > 0"></i></li>
+          <li><i v-if="msgLength > 1"></i></li>
+          <li><i v-if="msgLength > 2"></i></li>
+          <li><i v-if="msgLength > 3"></i></li>
+          <li><i v-if="msgLength > 4"></i></li>
+          <li><i v-if="msgLength > 5"></i></li>
+        </ul>
+      </div>
+
+      
+    </div>
+
+    
+    <!-- 遮罩层 -->
+    <div class="mui-popup-backdrop mui-active" style="display: none"></div>
+    
+
+    
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+		
+	<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
+<script>
+  	var nextstepBtn = document.getElementById('nextstepBtn');
+    nextstepBtn.onclick = function(){
+      // window.location.href = "../html/user.html";
+		}
+
+
+ // 点击提现弹出弹框
+ $("#nextstepBtn").on("click",function(){
+  $(".bouncedPwd").fadeIn(100)
+        $(".mui-active").fadeIn(300)
+        $(".bouncedBox").slideUp(100)
+    })
+
+    // 点击关闭隐藏弹框
+     $("#ShutDownBtn").on("click",function(){
+        $(".bouncedBox").removeClass('top0')
+        // $(".bouncedBox").slideUp(300)
+        $(".mui-active").fadeOut(300)
+    })
+      
+    // 点击遮罩层隐藏弹框
+     $(".mui-active").on("click",function(){
+        $(".bouncedBox").removeClass('top0')
+        $(".mui-active").fadeOut(300)
+        $(".bouncedPwd").fadeOut(300)
+    })
+
+
+
+    // 密码弹框
+     $("#paymentBtn").on("click",function(){
+        $(".bouncedPwd").fadeIn(100)
+        $(".mui-active").fadeIn(300)
+        $(".bouncedBox").slideUp(100)
+    })
+    // 关闭密码框
+     $("#bouncedPwdBtn").on("click",function(){
+        $(".bouncedPwd").fadeOut(100)
+        $(".mui-active").fadeOut(100)
+    })
+
+
+
+
+
+
+
+</script>

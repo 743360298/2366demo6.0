@@ -41,16 +41,21 @@
         background-color: #eaeaea;
 			}
 			 #nextstepBtn{
-				 /* margin-top: 1rem; */
-				 /* width: 590px; */
-				 /* height: 80px; */
 				 border-radius: 50px;
-				 width: 60%;
-				 margin: 30px auto 0 ;
 				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
-				 border: 0;
-				 /* height: 0.8rem; */
-				 /* line-height: 0.8rem; */
+         left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 30px auto 0 ;
+        width: 80%;
+        border: 0;
+        background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
+			 }
+       .mui-btn-block{
+				 padding: 0px ;
 			 }
        .BankCard{
          margin-top: 15px;
@@ -237,6 +242,9 @@
         border: 0;
         border-radius: 10px;
         background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
       }
 
        /*  密码弹框  */
@@ -349,7 +357,7 @@
         <span>储存卡</span>
         <div class="BankCardId">
           <span>工商银行&nbsp;&nbsp;&nbsp;(5455)</span>
-          <img class="BankCardImg" src="../images/drawable-xhdpi/工商银行.png" alt="">
+          <img class="BankCardImg" src="../images/drawable-xhdpi/gsyh.png" alt="">
           <span>单日交易限额￥50000.00</span>
         </div>
       </div>
@@ -374,9 +382,9 @@
     <!-- 确认支付 弹框  1 -->
     <div class="bouncedBox">
       <div class="bouncedHead">
-        <img id="ShutDownBtn" src="../images/drawable-xhdpi/错误.png" alt="">
+        <img id="ShutDownBtn" src="../images/drawable-xhdpi/cw.png" alt="">
         <span>确定付款</span>
-        <img src="../images/drawable-xhdpi/问题5.png" alt="">
+        <img src="../images/drawable-xhdpi/wt.png" alt="">
       </div>
       <div class="bouncedAmount ">
          <div class="bouncedMoney">￥<span>100.00</span></div>
@@ -403,7 +411,7 @@
     <!-- 密码弹框  -->
     <div class="bouncedPwd">
       <div class="bouncedHead bouncedPwdHead">
-        <img id="bouncedPwdBtn" src="../images/drawable-xhdpi/错误.png" alt="">
+        <img id="bouncedPwdBtn" src="../images/drawable-xhdpi/cw.png" alt="">
         <span>请输入支付密码</span>
         <img src="" alt="">
       </div>
@@ -415,7 +423,7 @@
      </div>
      <div class="bouncedcard">
        <div class="bouncedcardImg">
-         <img src="../images/drawable-xhdpi/工商银行.png" alt="">
+         <img src="../images/drawable-xhdpi/gsyh.png" alt="">
          <span>工商银行卡储存卡 (5462)</span>
        </div>
         <span class="bouncedcardIcon mui-pull-right mui-icon mui-icon-arrowright"></span>

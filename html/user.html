@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
 		<script>
 			mui.init();
 		</script>
@@ -19,23 +20,17 @@
 	    	.mui-action-back{
 	    		/*color: #fff;*/
 	    	}
-	    	.mui-title{
-	    		/*color: #fff;*/
-	    		font-size: 24px;
-	    		font-weight:700;
-	    	}
 	    	
 	    	.mui-content{
 	    		width: 100%;
 	    	}
 			.mui-table-view{
-				margin-top: 10px !important;
+				margin-top: 0.2rem !important;
 			}
-	    	.user{
-	    		height: 250px;
-	    		/*border: 1px solid black;*/
-	    	}
 
+			.mui-navigate-right:after, .mui-push-right:after{
+				font-size: 0.33rem;
+			}
 			.mui-table-view:before,.mui-table-view::after{
 				position: absolute;
 				right: 0;
@@ -60,62 +55,102 @@
 				padding: 0;
 				width: 100%;
 				height: 100%;
-				/* height: 4.5rem; */
-				margin-top: -3rem;
-				/* border: 1px solid black; */
+				margin-top: -0.9rem;
 	    	}
+				.user{
+					background: url('../images/drawable-xhdpi/gerenzhongxinbeijing.png') no-repeat;
+					background-size: 100% 100%;
+					width: 100%;
+					height: 4.5rem;
+					margin-top: -0.9rem;
+					position: relative;
+				}
+				.userLogin{
+					padding: 0 0.3rem;
+					display: flex;
+					justify-content: space-between;
+					position: relative;
+					width: 100%;
+					height: 2.5rem;
+					position: absolute;
+					bottom: 0;
+				}
+				.userName{
+					padding: 0 0.1rem;
+					width: 3.5rem;
+					height: initial;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
 	    	.icon{
-	    		position: relative;
-	    		top: -8.6rem;
-	    		left: 2.4rem;
-	    		width: 5.5rem;
-	    		height:5.5rem;
+					margin: 0 auto;
+	    		width: 1.55rem;
+	    		height: 1.55rem;
 	    		border-radius: 5.5rem;
-	    		border: 8px solid #fff;
+	    		border: 0.15rem solid #fff;
 	    		box-shadow: 0px 0px 5px #888888;
 	    	}
-	    	.name{
-	    		position: relative;
-	    		top: -6.6rem;
-	    		left: -3rem;
-	    		font-family: "微软雅黑";
-	    		font-weight: 500;
-	    		/*border: 1px solid black;*/
+	    	.userName .name{
+					margin-top: 0.2rem;
+					/* width:  4.5rem; */
+					display: flex;
+					justify-content: center;
+					font-size: 0.3rem;
+					line-height: initial;
+					overflow:hidden;
+					text-overflow:ellipsis; 
+					white-space:nowrap;
 	    	}
+				.loginBox{
+					width: 100%;
+					padding: 0.15rem;
+				}
 	    	.loginbtn{
-	    		position: relative;
-	    		top: -8.6rem;
-	    		right: -74%;
+	    		/* top: 0.6rem; */
 	    		display: flex;
 	    		align-items: center;
-	    		width: 5.4rem;
-	    		height: 2.2rem;
+	    		width: 1.58rem;
+	    		height:0.6rem;
 	    		border-radius: 100px;
 	    		background: linear-gradient(-120deg,#01cdf2,#1AA0FF);
-	    		/*border: 1px solid black;*/
+					position: absolute;
+					bottom: 0.2rem;
+					right: 0.4rem;
 	    	}
 	    	.login-img{
-	    		width: 1.4rem;
-	    		height: 1.4rem;
-	    		margin: 0.6rem;
+	    		width: 0.4rem;
+	    		height: 0.4rem;
+					margin-left: 0.2rem
 	    	}
 	    	.login-span{
 	    		color: #fff;
+					margin-left: 0.2rem;
+					font-size: 0.3rem;
 	    	}
 	    	.listimg{
 	    		vertical-align: middle;
-				width: 5%;
+				  width: 5%;
 	    	}
 	    	.listspan{
 	    		vertical-align: middle;
 	    		margin-left: 10px;
+					font-size: 0.3rem;
 	    	}
 			.mui-table-view-cell:after{
 				width: 91%;
 			}
 			.mui-table-view-cell{
-				padding: 12px 15px;
+				padding: 0.2rem 0.3rem ;
 			}
+			.mui-table-view-cell>a:not(.mui-btn){
+				margin: 0;
+				padding: 0;
+			}
+			
 
 			.footTab {
 				background-color: #fff;
@@ -132,6 +167,9 @@
 				right: 0;
 				left: 0;
 			}
+			.footTab{
+				height: 0.9rem;
+			}
 			.footTab a{
 				display: flex;
 				width: 50%;
@@ -139,44 +177,77 @@
 				flex-direction: column;
 				text-align: center;
 				color: #999;
-				/* font-size: 22px; */
-			}
-			.footTab a span{
-				font-size: 14px;
+				font-size: 0.24rem;
+				/* font-size: 13px; */
 			}
 			.footTab a img{
-				width: 13%;
-				margin: 0 auto;
+				width: 0.42rem;
+				height: 0.4rem;
+		    margin: 0 auto;
+			}
+			.footTabnav{
+				line-height: initial;
 			}
 			.nav-active span{
 				color: #17a5fe;
+				font-size: 0.24rem;
 			}
-			#footTab{
-				box-shadow:0 !important;
-				-webkit-box-shadow:0 !important;
+			.mui-bar-nav~.mui-content{
+				padding-top: 0.4rem;
 			}
-			 .footTab{
-				 padding: 10px 0s;
-			 }
+			.mui-bar .mui-btn-nav.mui-pull-left{
+				margin: 0;
+			}
+
+
+			.head{
+				height: 0.8rem;
+				position: relative;
+			}
+			.mui-bar{
+				height: 0.44rem;
+			}
+			.mui-bar .mui-title{
+				display: block;
+				height: 0.88rem !important;;
+				line-height:  0.88rem !important;;
+				font-size: 0.33rem;
+			}
+			.mui-bar .mui-btn-link{
+				height: 0.88rem;
+				line-height: 0.88rem;
+			}
+			.mui-bar .mui-icon{
+				font-size: 0.33rem;
+			}
 
     	</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav mui-bar-transparent">
-			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
 			<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
 		    <h1 class="mui-title">个人中心</h1>
 		</header>
+		<!-- <header class="head">
+				<h1 class="mui-title">个人中心</h1>
+			</header> -->
 		<div class="mui-content">
 			<div class="user">
-		    	<img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/>
-		    	<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
-		    	<span class="name">请登录</span>
-		    	<span class="loginbtn" id="loginbtn">
-					<img class="login-img" src="../images/drawable-xhdpi/用户(1).png"/>
-		    		<span class="login-span">登入</span>
-		    	</span>
+				<div class="userLogin">
+						<div class="userName">
+								<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
+								<div class="name">请登录</div>
+						</div>
+						<div class="loginBox">
+								<span class="loginbtn" id="loginbtn">
+								<img class="login-img" src="../images/drawable-xhdpi/yhhu1.png"/>
+								<span class="login-span">登入</span>
+						</div>
+				</div>
+		    	<!-- <img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/> -->
+		    	
+					
 		    </div>
 		    <div class="lists">
 		    	<ul class="mui-table-view">
@@ -208,13 +279,14 @@
 		    </div>
 		</div>
 
-		<nav class=" footTab" id="footTab">
-				<a  href="../index.html">
-					<img src="../images/drawable-xhdpi/首页2.png" alt="">
+
+		<nav class="  footTab">
+				<a class=" footTabnav  " href="../index.html">
+					<img src="../images/drawable-xhdpi/shouye.png" alt="">
 					<span class="mui-tab-label">首页</span>
 				</a>
-				<a class="nav-active" href="user.html">
-					<img src="../images/drawable-xhdpi/我的2.png" alt="">
+				<a class="footTabnav nav-active" href="html/user.html">
+					<img src="../images/drawable-xhdpi/wde2.png" alt="">
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>

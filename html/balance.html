@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/public.js"></script>
 		<script>
@@ -40,26 +41,23 @@
         background-color: #eaeaea;
 			}
 			 #topupBtn,#reflectBtn{
-				 /* margin-top: 1rem; */
-				 /* width: 590px; */
-				 /* height: 80px; */
+         margin-top: 1rem;
+         width: 5.9rem;
+         height: 0.8rem;
+         margin: 1.2rem auto 0;
 				 border-radius: 50px;
-				 width: 60%;
-				 margin: 1rem auto 0;
-				 background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
 				 border: 0;
-				 /* height: 0.8rem; */
-				 /* line-height: 0.8rem; */
+         line-height: 0.8rem;
+         font-size: 0.33rem;
+      }
+      .mui-btn-block{
+				 padding: 0px ;
 			 }
        #reflectBtn{
         margin: 0.3rem auto ;
         background-image: linear-gradient(55deg,#999,#999);
         }
-
-
-			 .mui-btn-block{
-				 padding: 8px 0;
-			 }
        .balanceBox{
          padding: 10px;
          /* background-color: #fff; */
@@ -73,8 +71,8 @@
         background-size: 100% 100%;
         width: 100%;
         height: 3.5rem;
-          padding: 22px;
-          color: #fff;
+        padding: 0.36rem;
+        color: #fff;
 	    	}
         .balanceImg .icon{
           width: 20%;
@@ -85,10 +83,12 @@
         }
         .balanceTxt>span{
           display: block;
+          font-size: 0.3rem;
+          margin-top: 0.1rem;
           /* margin: 5px 0 0; */
         }
         .balanceNum{
-          margin-top: 8px;
+          margin-top: 0.1rem;
           display: flex
         }
         .balanceNum .balanceNumImg{
@@ -97,9 +97,14 @@
         }
         #iNum{
           font-size: 22px;
+          font-size: 0.48rem;
           display: flex;
           align-items: center;
           margin-left: 10px;
+        }
+        .mui-bar .mui-btn-link{
+          font-size: 0.33rem;
+          margin-right: 0.15rem;;
         }
 		</style>
 	</head>
@@ -109,7 +114,7 @@
     <header id="header" class="mui-bar mui-bar-nav">
       <h1 class="mui-title">i 币余额</h1>
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-      <button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">明细</button>
+      <span id="toDetailBtn" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">明细</span>
 		</header>
 		
     <!-- 余额 -->
@@ -120,9 +125,9 @@
                 <img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
             </div>
             <div class="balanceTxt">
-              <span>我的i币</span>
+              <span>我的 i 币</span>
               <div class="balanceNum">
-                <img class='balanceNumImg' src="../images/drawable-xhdpi/i币.png" alt="">
+                <img class='balanceNumImg' src="../images/drawable-xhdpi/ib.png" alt="">
                 <span id="iNum">2000.00</span>
               </div>
             </div>
@@ -159,5 +164,13 @@
   	var topupBtn = document.getElementById('topupBtn');
     topupBtn.onclick = function(){
       window.location.href = "../html/top-up.html";
+    }
+  	var toDetailBtn = document.getElementById('toDetailBtn');
+    toDetailBtn.onclick = function(){
+      window.location.href = "../html/detail.html";
+    }
+  	var reflectBtn = document.getElementById('reflectBtn');
+    reflectBtn.onclick = function(){
+      window.location.href = "../html/withdrawal.html";
     }
 </script>
